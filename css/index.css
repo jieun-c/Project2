@@ -55,7 +55,7 @@ body::-webkit-scrollbar {
     top:0; left:100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
 }
 .slide1{background-image: url("../img/1/slide1.jpg"); background-position: 45% 50%;}
 .slide2{background-image: url("../img/1/slide2.jpg");}
