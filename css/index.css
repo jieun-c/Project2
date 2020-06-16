@@ -55,7 +55,6 @@ body::-webkit-scrollbar {
     top:0; left:100%;
     background-size: cover;
     background-repeat: no-repeat;
-    /*background-attachment: fixed;*/
 }
 .slide1{background-image: url("../img/1/slide1.jpg"); background-position: 45% 50%;}
 .slide2{background-image: url("../img/1/slide2.jpg");}
@@ -408,6 +407,9 @@ body::-webkit-scrollbar {
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+    .slide_item{
+        background-attachment: fixed;
+    }
     .black h1{
         font-size: 2.5rem;
     }
