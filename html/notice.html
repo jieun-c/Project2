@@ -6,18 +6,18 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/prefixfree.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/prefixfree.min.js"></script>
     
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/sub.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/sub.css">
     
     <script>
         $(document).ready(function(){
-            $("header").load("/html/header_sub.html");
-            $("footer").load("/html/footer.html");
+            $("header").load("header_sub.html");
+            $("footer").load("footer.html");
             
             var listBox = $(".listBox"),
             numBox = listBox.find(".num"), /*1,2,3,4...*/
@@ -100,13 +100,13 @@
         });
     </script>
     <style>
-        @font-face{font-family:'YetHangul'; src: url('/font/NanumBarunGothic-YetHangul.ttf');}
+        @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
         
         #pcImg{
             display: none;
         }
         .subTop_bg{
-            background-image: url("/img/1/subTop_about.jpg");
+            background-image: url("../img/1/subTop_about.jpg");
         }
         
         #notice{font-family: 'YetHangul';}
@@ -269,7 +269,7 @@
         <div id="container">
             <div class="subTop">
                 <div class="subTop_bg">
-                    <img id="pcImg" src="/img/1/subTop_about.jpg" alt="">
+                    <img id="pcImg" src="../img/1/subTop_about.jpg" alt="">
                     <nav class="subTop_title">
                         <div id = "title_line"></div>
                         <h1>NOTICE</h1>
