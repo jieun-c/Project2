@@ -10,6 +10,12 @@ body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
 }
 
+html,body{height: 200%;}
+#wrap, #container{
+    height: 100%;
+}
+.main{height: 25%;}
+
 /*.go{
     display: block;
     width: 200px;
@@ -45,7 +51,7 @@ body::-webkit-scrollbar {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 .slide_item{
     width: 100%;
@@ -142,7 +148,7 @@ body::-webkit-scrollbar {
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
-    margin-top: 5vh;
+    margin-top: 20px; /*5vh*/
 }
 #acmhead img{ /*밀튼*/
     vertical-align: middle;
@@ -195,7 +201,7 @@ body::-webkit-scrollbar {
 }
 #acmBtn li{
     text-align: center;
-    padding: 1vh 0;
+    padding: 5px 0; /*1vh 0*/
     box-sizing: border-box;
     color: #261308;
     cursor: pointer;
@@ -213,7 +219,7 @@ body::-webkit-scrollbar {
     overflow: hidden;
 }
 #prmhead{
-    margin-top: 10vh;
+    margin-top: 20px; /*10vh*/
     width: 100%;
     position: relative;
 }
@@ -281,7 +287,7 @@ body::-webkit-scrollbar {
     color: white;
     cursor: pointer;
     text-align: center;
-    padding: 2.5vh 0;
+    padding: 5px 0; /*2.5vh 0;*/
     border: 1px solid #261308;
 }
 #prmBtn li.on{
@@ -534,7 +540,7 @@ body::-webkit-scrollbar {
     }
     
     #prmhead{
-        margin-top: 5vh;
+        margin-top: 20px; /*5vh;*/
     }
     #bnflist{
         width: 100%;
