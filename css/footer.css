@@ -1,0 +1,112 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+/*footer*/
+footer{
+    overflow: hidden;
+}
+#brand{width: 90%; max-width: 1300px; margin: 0 auto; display: none;}
+
+#footerBox > li{
+    word-break: keep-all;
+    padding: 10px;
+}
+#f1 a, #f2 a, #f3 a{
+    color: black;
+}
+#footerBox>li:nth-child(1), #footerBox>li:nth-child(2){
+    font-size: 0.8rem;
+}
+#f1 ul, #f2 ul{
+    width: 100%;
+    
+}
+#f1 ul li, #f2 ul li{
+    width: 80%;
+    margin: 0 auto;
+}
+
+#f3{
+    margin-top: 10px;
+}
+
+.snsBox{
+    display: flex;
+    justify-content: space-around;
+}
+.telBox{
+    text-align: center;
+    padding: 10px 0;
+}
+.telBox > dt{
+    display: inline-block;
+    padding-right: 5px;
+}
+.telBox > dd {
+    display: inline-block;
+}
+#f4 p{
+    text-align: center;
+    padding: 10px;
+}
+#f4 img{
+    display: block;
+    margin: 0 auto;
+}
+
+#fotBtn .go{
+    margin-right: 10px;
+    width: 100%;
+    max-width: 235px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 5px;
+    border: 2px solid #1e4a6e;
+    margin: 0 auto;
+}
+#fotBtn .go:before{
+    background-color: #1e4a6e;
+}
+
+footer > #copy{
+    background-color: #150b05;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    #footerBox{
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    #footerBox{
+        display: grid;
+        grid-template: repeat(1, 1fr) / repeat(4, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    #brand{display: block;}
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .snsBox{
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    #fotBtn{
+        display: flex;
+        justify-content: center;
+    }
+    #fotBtn .go{
+        margin: 5px;
+    }
+}

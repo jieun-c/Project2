@@ -1,0 +1,295 @@
+<script>
+    /*모바일 헤더*/
+    var mo_layer = $(".mobileLayer");
+        var mo_gnb = $(".mobileMenu > .gnb");
+        var mo_btn = $("#mo_btn");
+        var xBtn = $("#xBtn");
+
+        mo_btn.click(function(){
+            mo_layer.fadeIn(300);
+        });
+        xBtn.click(function(){
+            mo_gnb.find(".snb").slideUp();
+            mo_layer.fadeOut(300);
+        });
+        mo_gnb.find("li").click(function(){
+            $(this).children(".snb").slideToggle(500);
+        });
+        
+    
+    
+    
+    
+    //참고 코드들 
+    /*var didScroll; // 스크롤시에 사용자가 스크롤했다는 것을 알림 
+    var lastScrollTop = 0; 
+    var delta = window.innerHeight / 2; // 동작의 구현이 시작되는 위치 
+    var navbarHeight = $("header").outerHeight(); // 영향을 받을 요소를 선택
+    
+    $(window).scroll(function(event){ 
+        didScroll = true; 
+    }); 
+    //hasScrolled()를 실행하고 didScroll 상태를 재설정 
+    setInterval(function() {
+        if (didScroll){ 
+            hasScrolled(); 
+            didScroll = false; 
+        } 
+    }, 250); 
+    function hasScrolled() {
+        // 동작을 구현 
+        
+        // 접근하기 쉽게 현재 스크롤의 위치를 저장한다. 
+        var st = $(this).scrollTop(); 
+        // 설정한 delta 값보다 더 스크롤되었는지를 확인한다. 
+        
+        if(Math.abs(lastScrollTop - st) <= delta) {
+            return;
+        }
+        
+        // 헤더의 높이보다 더 스크롤되었는지 확인하고 스크롤의 방향이 위인지 아래인지를 확인한다. 
+        // If current position > last position AND scrolled past navbar... 
+        if (st > lastScrollTop && st > navbarHeight){ 
+            // Scroll Down 
+            $("header").slideUp();
+        } else { 
+            // Scroll Up 
+            // If did not scroll past the document (possible on mac)... 
+            if(st + $(window).height() < $(document).height()) { 
+                $("header").slideDown();
+            } 
+        } // lastScrollTop 에 현재 스크롤위치를 지정한다. 
+        
+        lastScrollTop = st;
+    }*/
+    
+    // $(window).innerHeight() 윈도우의 창높이를 알 수 있다.
+    //console.log($(window).innerHeight());
+    //$(window).scrollTop() 현재 스크롤이 위치한 값
+    //console.log($(window).scrollTop());
+    
+    //responsive();
+/*    function responsive(){
+        var w = $(window).width();
+        if(w >= 992){
+            //pc
+            var winHeight = window.innerHeight / 2;
+
+            $(window).scroll(function(){
+                if($(this).scrollTop() > winHeight){
+                    $("header").slideUp(500);
+                }
+            });
+            
+        }else if(w >= 576){
+            //tablet
+            var winHeight = window.innerHeight - 70;
+
+            $(window).scroll(function(){
+                if($(this).scrollTop() > winHeight){
+                    $("header").css("background","rgba(255,255,255,0.8)");
+                    mo_btn.css("color","black");
+                    $("#logo > img").attr("src","img/icon2/logo_b.png").stop().animate({height: "70px"});
+                    $(".info i").css("color","black");
+                }else if($(this).scrollTop() <= winHeight){
+                    $("header").css("background","rgba(0,0,0,0)");
+                    mo_btn.css("color","white");
+                    $("#logo > img").attr("src","img/icon2/logo_w.png").stop().animate({height: "170px"});
+                    $(".info i").css("color","white");
+                }
+            }); 
+        }else{
+            //mobile
+            var winHeight = window.innerHeight - 70;
+
+            $(window).scroll(function(){
+                //console.log(winHeight);
+
+                if($(this).scrollTop() > winHeight){
+                    $("header").css("background","rgba(255,255,255,0.8)");
+                    mo_btn.css("color","black");
+                    $("#logo > img").attr("src","img/icon2/logo_b.png").stop().animate({height: "70px"});
+                    $(".info i").css("color","black");
+                }else if($(this).scrollTop() <= winHeight){
+                    $("header").css("background","rgba(0,0,0,0)");
+                    mo_btn.css("color","white");
+                    $("#logo > img").attr("src","img/icon2/logo_w.png").stop().animate({height: "132px"});
+                    $(".info i").css("color","white");
+                }
+                
+            });    
+        }
+    }*/
+    
+    /*$(window).resize(function(){
+        responsive();
+    });*/
+    // //참고 코드들
+    
+    $(window).resize(function(){
+        var w = $(this).width();
+        
+        if(w >= 992){
+            //모바일(태블릿)상태에서 사이즈조정 후 pc창일시 헤더크기가 커져있음 (초기화)
+            $("#logo img").css("height","10px");
+        }else if(w > 576){
+            //pc에서 slide up 상태에서 사이즈조정되면 헤더가 보이지 않음 (초기화)
+            $("header").show();
+            $("#logo img").css("height","170px");
+        }else{
+            $("#logo img").css("height","132px");
+        }
+    });
+    
+    
+    //구현
+    $(window).scroll(function(){
+        var w = $(this).width();
+        
+        if(w >= 992){
+            pcHeader();
+        }else if(w >= 576){
+            moteHeader("170px");
+        }else{
+            moteHeader("132px");
+        }
+    });
+    
+    var lastScrollTop = 0;
+    
+    function pcHeader(){
+        var sct = $(this).scrollTop();
+        var inh = $(this).innerHeight() - 95;
+
+        if ((sct > lastScrollTop) && (sct >= inh)) {
+            $("header").slideUp();
+            dark_Change();
+
+        }else if(sct <= lastScrollTop){
+            $("header").show();
+            if(sct < inh){
+                white_Change();
+            }
+        }
+        lastScrollTop = sct;
+    }
+    function moteHeader(h){
+        var sct = $(this).scrollTop();
+        var inh = $(this).innerHeight() - 90;
+        
+        //pc에서 slide up 상태에서 사이즈조정되면 헤더가 보이지 않음 (초기화)
+        $("header").show();
+        
+        if(sct < inh){
+            white_Change();
+            
+            if(sct == 0){
+               $("#logo img").stop().animate({height: h}); //css에서 각각max조정됐으나(XX)
+            }else if(sct > lastScrollTop){
+                $("#logo img").stop().animate({height: "-=20"});
+            }else{
+                $("#logo img").stop().animate({height: "+=20"});
+            }
+        }else{
+            dark_Change();                                   //스크롤발생시매번계산하기때문에 (OO)
+            $("#logo img").stop().animate({height: "90px"}); // 최소최대높이 변수로 지정 필요
+        }
+        lastScrollTop = sct;
+    }
+
+    function white_Change(){
+        $("header").css("background-color","rgba(0,0,0,0)");
+        $("#logo img").attr("src","/img/icon/logo_w.png");
+        $(".mainMenu > ul > li > a").css("color","white");
+        mo_btn.css("color","white");
+        $(".info i").css("color","white");
+        $(".mainMenu .snb").css("background-color","rgba(0,0,0,0.2)");
+    }
+    function dark_Change(){
+        $("header").css("background-color","white");
+        $("#logo img").attr("src","/img/icon/logo_b.png");
+        $(".mainMenu > ul > li > a").css("color","black");
+        mo_btn.css("color","black");
+        $(".info i").css("color","black");
+        $(".mainMenu .snb").css("background-color","rgba(0,0,0,0.4)");
+    }
+    
+    
+/*    $(window).resize(function(){
+        var w = $(this).width();
+        if(w >= 992){
+            //모바일(태블릿)상태에서 사이즈조정 후 pc창일시 헤더크기가 커져있음 (초기화)
+            $("#logo img").css("height","95px");
+        }else if(w >= 576){
+            //pc에서 slide up 상태에서 사이즈조정되면 헤더가 보이지 않음 (초기화)
+            $("header").show();
+            $("#logo img").css("height","170px");
+        }else{
+            $("#logo img").css("height","132px");
+        }
+    });*/
+//수정필요
+    
+</script>
+
+
+<i id="mo_btn" class="fas fa-bars fa-2x"></i>
+<div class="mobileLayer">
+    <nav class="mobileMenu">
+        <i id="xBtn" class="fas fa-times fa-3x"></i>
+        <ul class="gnb">
+            <li> <a href="javascript:;">ABOUT</a>
+                <ul class="snb">
+                    <li><a href="html/intro.html">Intro</a></li>
+                    <li><a href="html/notice.html">Notice</a></li>
+                    <li><a href="html/reservation.html">Reservation</a></li>
+                </ul>
+            </li>
+            <li> <a href="javascript:;">ACCOMMODATION</a>
+                <ul class="snb">
+                    <li><a href="html/deluxe.html">Deluxe</a></li>
+                    <li><a href="html/deluxe_MV.html">Deluxe Mountain View</a></li>
+                    <li><a href="html/executive.html">Executive</a></li>
+                    <li><a href="html/executive_MV.html">Executive Mountain View</a></li>
+                    <li><a href="html/suite.html">Suite</a></li>
+                </ul>
+            </li>
+            <li><a href="html/dining.html">DINING</a></li>
+            <li><a href="html/service.html">SERVICE</a></li>
+            <li><a href="html/promotion.html">PROMOTION</a></li>
+        </ul>
+    </nav>
+</div>
+
+<a id="logo" href="/index.html"><img src="/img/icon/logo_w.png" alt=""></a>
+<nav class="mainMenu">
+    <ul class="gnb">
+        <li> <a href="intro.html">ABOUT</a>
+            <ul class="snb">
+                <li><a href="intro.html">Intro</a></li>
+                <li><a href="notice.html">Notice</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+            </ul>
+        </li>
+        <li> <a href="deluxe.html">ACCOMMODATION</a>
+            <ul class="snb">
+                <li><a href="deluxe.html">Deluxe</a></li>
+                <li><a href="deluxe_MV.html">Deluxe Mountain View</a></li>
+                <li><a href="executive.html">Executive</a></li>
+                <li><a href="executive_MV.html">Executive Mountain View</a></li>
+                <li><a href="suite.html">Suite</a></li>
+            </ul>
+        </li>
+        <li><a href="dining.html">DINING</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="promotion.html">PROMOTION</a></li>
+    </ul>
+</nav>
+<ul class="info">
+    <li>
+        <a href="/html/signIn.html"><i class="far fa-user"></i></a>
+    </li>
+    <li>
+        <a href="/html/signUp.html"><i class="far fa-edit"></i></a>
+    </li>
+</ul>

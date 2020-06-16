@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/prefixfree.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/sub.css">
+    
+    <script>
+        $(document).ready(function(){
+            $("header").load("/html/header_sub.html");
+            $("footer").load("/html/footer.html");
+        });
+    </script>
+    <style>
+        @font-face{font-family:'YetHangul'; src: url('/font/NanumBarunGothic-YetHangul.ttf');}
+        #pcImg{
+            display: none;
+        }
+        .subTop{
+            background-image: url("/img/1/subTop_sign1704.jpg");
+        }
+        .loginPage{
+            background-color: #eee;
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin-bottom: 50px;
+        }
+        
+        .loginPage #loginBox{
+            position: absolute;
+            left: 50%; top: 10%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+        
+        #loginform{
+            margin: 0 auto;
+            width: 70%;
+            max-width: 400px;
+        }
+        #loginform h3{
+            text-align: center;
+            font-size: 2rem;
+            padding: 10px;
+        }
+        #loginform li:nth-child(2), #loginform li:nth-child(3){
+            width: 100%;
+            height: 50px;
+            margin: 5px 0;
+            border: 1px solid lightgray;
+            display: flex;
+            align-items: center;
+            background-color: white;
+        }
+        #loginform input[type=text],#loginform input[type=password]{
+            border: none;
+            height: 100%;
+            flex: 1;
+            font-family: 'YetHangul';
+        }
+        #loginform i{
+            color: #556ad1;
+            font-size: 1.3rem;
+            padding: 10px;
+        }
+        #infoSearch{
+            display: flex;
+        }
+        #infoSearch a{
+            color: black;
+            font-size: 0.8rem;
+            padding: 5px 0;
+            font-family: 'YetHangul';
+        }
+        #infoSearch a:nth-child(2){
+            flex: 1;
+            padding-left: 10px;
+        }
+        
+        #loginform input[type=submit]{
+            width: 60%;
+            margin: 10px auto;
+            display: block;
+            
+            background-color: #0072bc;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 15px 0;
+            font-size: 1rem;
+            border-bottom: 5px solid #004776;
+            transition: .1s;
+        }
+        #loginform input[type=submit]:active{
+            transform: translateY(3px);
+            border-bottom: 2px solid #004776;
+        }
+        
+        /* Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) {
+
+        }
+
+        /* Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) {
+
+        }
+
+        /* Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) {
+        }
+
+        /* Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+            #pcImg{
+                display: block;
+                width: 100%;
+                height: 550px;
+                filter: brightness(70%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div id="wrap">
+        <div id="container">
+            <div class="subTop">
+                <div class="subTop_bg">
+                    <img id="pcImg" src="/img/1/subTop_sign1704.jpg" alt="">
+                    <nav class="subTop_title">
+                        <div id = "title_line"></div>
+                        <h1>SIGN IN</h1>
+                        <h3>로그인</h3>
+                        <ul>
+                            <li><a href="/index.html">HOME</a></li>
+                            <li><a href="signIn.html">SIGN IN</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="loginPage">
+                
+                  <div id = "loginBox">
+                   <form action="" id="loginform">
+                        <ul>
+                            <li><h3>LOGIN</h3></li>
+                            <li>
+                                <label for="id"><i class="fas fa-user"></i></label>
+                                <input type="text" id="id" name="id" placeholder="아이디 또는 이메일" required>
+                            </li>
+                            <li>
+                                <label for="pwd"><i class="fas fa-lock"></i></label>
+                                <input type="password" id="pwd" name="pwd" placeholder="비밀번호" required>
+                            </li>
+                            <li>
+                                <div id="infoSearch">
+                                    <a href="Javascript:;">아이디 찾기</a>
+                                    <a href="Javascript:;">비밀번호 찾기</a>
+                                    <a href="signUp.html">회원가입</a>
+                                </div>
+                            </li>
+                            <li><input type="submit" value="SIGN IN"></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+            
+            
+        </div>
+        <footer></footer>
+    </div>
+</body>
+</html>

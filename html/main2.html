@@ -1,0 +1,123 @@
+<script>
+    var acmBtn = $("#accommodation > #acmBtn > li"),
+        acmImg1 = $("#accommodation > #acmImg1"),
+        acmImg2 = $("#accommodation > #acmImg2");
+    
+    var btnIndex = 0;
+
+    
+    acmBtn.click(function(){
+        var tg = acmBtn.index(this);
+        btnIndex = tg;
+        
+        acmBtn.removeClass("on");
+        $(this).addClass("on");
+        
+        acmSlide("-100%", "30px", 0);
+        
+    });
+    
+    function acmSlide(hidden, leftShow, rightShow){
+        txtChange();
+        
+        acmImg1.stop().animate({left: hidden}, 500, function(){
+            imgChange();
+            acmImg1.stop().animate({left: leftShow},500);
+        });
+        
+        acmImg2.stop().animate({right: hidden}, 500, function(){
+            acmImg2.stop().animate({right: rightShow}, 500);
+        });
+    }
+    
+    //텍스트 변경
+    function txtChange(){
+        switch(btnIndex){
+            case 0: 
+                $("#acmBox2 > p").text("Deluxe");
+                break;
+            case 1: 
+                $("#acmBox2 > p").text("DeluxeMountain");
+                break;
+            case 2: 
+                $("#acmBox2 > p").text("Executive");
+                break;
+            case 3: 
+                $("#acmBox2 > p").text("ExecutiveMountain");
+                break;
+            case 4: 
+                $("#acmBox2 > p").text("Suite");
+                break;
+            default: 
+                break;
+        }
+    }
+    
+    //이미지 변경        
+    function imgChange(){
+        switch(btnIndex){
+            case 0: 
+                acmImg1.attr("src","../img/2/deluxe1.jpg");
+                acmImg2.attr("src","../img/2/deluxe2.jpg");
+                break;
+            case 1: 
+                acmImg1.delay(1000).attr("src","../img/2/deluxeMountain1.jpg");
+                acmImg2.delay(1000).attr("src","../img/2/deluxeMountain3.jpg");
+                break;
+            case 2: 
+                acmImg1.attr("src","../img/2/executive1.jpg");
+                acmImg2.attr("src","../img/2/executive3.jpg");
+                break;
+            case 3: 
+                acmImg1.attr("src","../img/2/executiveMountain1.jpg");
+                acmImg2.attr("src","../img/2/executiveMountain2.jpg");
+                break;
+            case 4: 
+                acmImg1.attr("src","../img/2/suite4.jpg");
+                acmImg2.attr("src","../img/2/suite7.jpg");
+                break;
+            default: 
+                break;
+        }
+    }
+    
+    
+    
+    
+    var title_acm = $("#acmhead");
+    title_acm.hide();
+    
+    //title
+    $(window).scroll(function(){
+        var main = $("#main2").offset().top;
+        var w = $(window).scrollTop();
+        
+        if(main <= w * 2){
+            title_acm.slideDown(1000);
+        }else{
+            title_acm.hide();
+        }
+    });
+    
+    
+    //
+    
+</script>
+   
+<div id="accommodation">
+    <div id="acmhead">
+        <img class="milton" src="img/icon/milton4.png" alt=""><h1>Accommodation</h1>
+    </div>
+    <div id="acmBox1"></div>
+    <img id="acmImg1" src="img/2/deluxe1.jpg" alt="">
+    <div id="acmBox2"><p>Deluxe</p></div>
+    <img id="acmImg2" src="img/2/deluxe2.jpg" alt="">   
+    
+    <ul id="acmBtn">
+        <li class="on">Deluxe</li>
+        <li>Deluxe Mountain View</li>
+        <li>Executive</li>
+        <li>Executive Mountain View</li>
+        <li>Suite</li>
+    </ul>
+</div>

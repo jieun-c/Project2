@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/prefixfree.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/sub.css">
+    
+    <script>
+        $(document).ready(function(){
+            $("header").load("/html/header_sub.html");
+            $("footer").load("/html/footer.html");
+            
+            var tos = $(".tos2 li");
+            var clicked = 10;
+            
+            //초기화
+            tos.each(function(index, element){
+                $(this).find("div").hide();
+                $(this).find("span").css("transform","rotate(180deg)");
+            });
+            
+            //전체동의
+            tos.eq(0).find("input[type=checkbox]").click(function(){
+                if($(this).prop("checked")){
+                    tos.find("input[type=checkbox]").prop("checked",true);
+                }else{
+                    tos.find("input[type=checkbox]").prop("checked",false);
+                }
+            });
+            
+            
+            
+            //개별 동의
+            tos.find("span").click(function(){
+                var tg = tos.find("span").index(this) + 1;
+                
+                if(clicked == tg){
+                    tos.find("div").slideUp();
+                    tos.find("span").css("transform","rotate(180deg)");
+                    
+                    clicked = 10;
+                    return;
+                }
+                
+                tos.find("div").slideUp();
+                tos.find("span").css("transform","rotate(180deg)");
+                tos.eq(tg).find("div").slideDown(500);
+                tos.eq(tg).find("span").css("transform","rotate(360deg)");
+                
+                clicked = tg;
+            });
+            
+            
+            
+        });
+    </script>
+    <style>
+        @font-face{font-family:'YetHangul'; src: url('/font/NanumBarunGothic-YetHangul.ttf');}
+        
+        #pcImg{
+            display: none;
+        }
+        .subTop{
+            background-image: url("/img/1/subTop_sign1704.jpg");
+        }
+        .join{
+            max-width: 1200px; /*1710*/
+            width: 90%;
+            margin: 30px auto;
+            background-color: #f7f2eb;
+        }
+        .join fieldset{
+            border: none;
+            padding: 0 5%;
+        }
+        .join legend{
+            font-family: 'YetHangul';
+            text-align: center;
+            font-size: 1.3rem;
+            padding: 50px 0 20px;
+        }
+        .formInfo label{
+            display: inline-block;
+            width: 25%;
+            vertical-align: middle;
+            font-size: 0.9rem;
+            font-family: 'YetHangul';
+            word-break: keep-all;
+        }
+        .formInfo input{
+            font-family: 'YetHangul'; /*placeholder*/
+            width: 70%;
+            height: 35px;
+            border: 1px solid lightgray;
+        }
+        .formInfo li{
+            margin: 15px 0;
+        }
+        .tos1{
+            text-align: center;
+        }
+        .tos1 p{
+            font-family: 'YetHangul';
+            line-height: 25px;
+            font-size: 0.8rem;
+        }
+        .tos1 .line{
+            display: inline-block;
+            width: 50px;
+            height: 3px;
+            margin: 20px 0;
+            background-color: black;
+        }
+        .tos2 li{
+            margin: 10px 0;
+        }
+        .tos2 label{
+            font-family: 'YetHangul';
+            font-size: 0.7rem;
+            line-height: 30px;
+            word-break: keep-all;
+        }
+        .tos2 li:hover label{
+            color: orange;
+        }
+        .tos2 li div{
+            padding: 20px;
+            background-color: white;
+            font-family: 'YetHangul';
+            line-height: 20px;
+            font-size: 0.8rem;
+        }
+        .tos2 span{
+            display: inline-block;
+            padding: 0 10px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        
+        .joinBtn{
+            display: flex;
+            flex-direction: column-reverse;
+            margin: 20px 0 50px;
+        }
+        .joinBtn input[type=submit], .joinBtn input[type=reset]{
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            cursor: pointer;
+            padding: 15px 0;
+            margin: 5px 0;
+            color: white;
+        }
+        .joinBtn input[type=submit]{
+            background-color: #1e4a6e;
+        }
+        .joinBtn input[type=reset]{
+            background-color: #a0a0a0;
+        }
+        a{color: blue;}
+        
+        /* Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) {
+            .join{
+                width: 80%;
+            }
+            .join legend{
+                font-size: 1.5rem;
+            }
+            .joinBtn{
+                flex-direction: row;
+                justify-content: center;
+            }
+            .joinBtn input[type=submit], .joinBtn input[type=reset]{
+                width: 200px;
+                margin: 5px;
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) {
+            .join{
+                width: 75%;
+            }
+            .joinBtn input[type=submit], .joinBtn input[type=reset]{
+                width: 250px;
+                margin: 5px 10px;
+            }
+        }
+
+        /* Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) {
+            .join legend{
+                font-size: 1.7rem;
+            }
+            .formInfo, .tos1, .tos2{
+                padding: 0 10%;
+            }
+            .joinBtn input[type=submit], .joinBtn input[type=reset]{
+                width: 300px;
+                margin: 15px 20px;
+            }
+        }
+
+        /* Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+            #pcImg{
+                display: block;
+                width: 100%;
+                height: 550px;
+                filter: brightness(70%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div id="wrap">
+        <div id="container">
+            <div class="subTop">
+                <div class="subTop_bg">
+                    <img id="pcImg" src="/img/1/subTop_sign1704.jpg" alt="">
+                    <nav class="subTop_title">
+                        <div id = "title_line"></div>
+                        <h1>SIGN UP</h1>
+                        <h3>회원가입</h3>
+                        <ul>
+                            <li><a href="javascript:;">HOME</a></li>
+                            <li><a href="javascript:;">SIGN UP</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div> <!--//subTop-->
+            
+            <form class="join" action="">
+                <fieldset>
+                    <legend>힐튼 Honors 가입</legend>
+                    <ul class="formInfo">
+                        <li>
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" required>
+                        </li>
+                        <li>
+                            <label for="id">이메일</label>
+                            <input type="email" id="id" name="id" required>
+                        </li>
+                        <li>
+                            <label for="pwd">비밀번호</label>
+                            <input type="password" id="pwd" name="pwd" placeholder="영문,숫자,특수문자 포함 8~12자리" required>
+                        </li>
+                        <li>
+                            <label for="pwd">비밀번호 확인</label>
+                            <input type="password" id="pwd2" name="pwd" required>
+                        </li>
+                        <li>
+                            <label for="pwd">전화번호</label>
+                            <input type="tel" id="tel" name="tel" required>
+                        </li>
+                        <li>
+                            <label for="addr">주소</label>
+                            <input type="text" id="addr" name="addr" required>
+                        </li>
+                    </ul>
+
+                    <ul class="tos1">
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                        <li>
+                            <p>
+                                본인은 위에서 힐튼으로부터 연락을 받는 데 동의하거나 힐튼이 자동 의사결정을 내리는 데 동의한 경우, <br>
+                                힐튼이 각 마케팅 메시지에서 제공하는 지침을 따라, 또는 힐튼 Honors 계정의 설정을 변경하여 언제든지 동의를 철회할 수 있다는 점을 이해하고 있습니다. <br>
+                                본인은 HGV로부터 연락을 받는 데 동의한 경우, HGV가 각 마케팅 메시지에서 제공하는 지침을 따라 언제든지 동의를 철회할 수 있다는 점을 이해하고 있습니다. <br>
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                가입 버튼을 클릭함으로써 귀하는 <a href="https://hiltonhonors3.hilton.com/ko_KR/terms/index.html">HiltonHonors.com</a>에 동의합니다. <br>
+                                힐튼은 고객이 예약하거나 기타 이유로 힐튼에 등록할 때 고객의 개인 정보를 수집합니다. <br>
+                                힐튼은 고객의 개인 정보를 활용해 힐튼 서비스 및 상품을 제공하고, 고객 서비스를 제공하고, <br>
+                                <a href="https://hiltonhonors3.hilton.com/ko_KR/policy/global-privacy-statement/index.html">글로벌 개인정보보호 선언문</a>에 설명된 기타 목적으로 이용하며, 고객이 동의하는 경우 직접 마케팅 및 맞춤형 상품 정보를 전송합니다. <br>
+                                힐튼은 <a href="https://hiltonhonors3.hilton.com/ko_KR/policy/global-privacy-statement/index.html">글로벌 개인정보보호 선언문</a>을 준수하는 경우에 한해 힐튼 브랜드 포트폴리오의 회원, 힐튼의 서비스 제공자 및 특정 제3자와 고객의 개인 정보를 공유할 수 있습니다. <br>
+                            </p>
+                        </li>
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                    </ul>
+                    <ul class="tos2">
+                        <li>
+                            <input type="checkbox" id="allCheck" name="allCheck">
+                            <label for="allCheck">전체 동의 (선택사항)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="chk1" name="chk">
+                            <label for="chk1">힐튼 마케팅 (선택사항)</label><span>▼</span>
+                            <div>본인은 힐튼 <a href="https://hiltonhonors3.hilton.com/ko_KR/policy/global-privacy-statement/index.html">글로벌 개인정보보호 선언문</a>에 설명된 대로 이메일, 우편 및 SMS를 통해 <br>Hilton Domestic Operating Company Inc.(“힐튼”)의 마케팅 메시지 및 프로모션 상품 정보를 수신하는 데 동의합니다.</div>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="chk2" name="chk">
+                            <label for="chk2">개인 맞춤형 상품 및 콘텐츠 (선택 사항)</label><span>▼</span>
+                            <div>본인은 힐튼이 개인 맞춤형 마케팅 메시지 및 프로모션 상품 정보를 전송할 목적으로 자동 의사결정††을 하기 위한 <br>세분화† 작업을 수행할 수 있다는 점에 동의합니다. 본인은 힐튼이 <a href="https://hiltonhonors3.hilton.com/ko_KR/policy/global-privacy-statement/index.html">힐튼 글로벌 개인정보보호 선언문</a>에 따라 <br>본인의 개인 정보를 처리할 수 있다는 것을 확인합니다.</div>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="chk3" name="chk">
+                            <label for="chk3">힐튼 그랜드 베케이션즈 마케팅(선택 사항)</label><span>▼</span>
+                            <div>본인은 <a href="https://www.hiltongrandvacations.com/kr/privacy-policy.html">HGV 개인정보보호 선언문</a>에 설명된 대로 이메일, 우편 및 전화를 통해 <br>
+                            HGV 및 제3자 제휴사의 마케팅 메시지 및 프로모션 상품 정보를 수신하는 데 동의합니다.</div>
+                        </li>
+                    </ul>
+                    <ul class="joinBtn">
+                        <li>
+                            <input type="reset" value="다시 작성">
+                        </li>
+                        <li>
+                            <input type="submit" value="무료 가입">
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

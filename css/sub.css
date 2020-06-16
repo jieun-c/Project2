@@ -1,0 +1,129 @@
+.subTop{
+    width: 100%;
+    height: 350px;
+    position: relative;
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.5s;
+}
+.subTop > .subTop_bg{
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+.subTop .subTop_title{
+    position: absolute;
+    top: 50%; left:50%;
+    transform: translate(-50%, -30%);
+    width: 100%;
+    padding: 20px 0;
+}
+.subTop .subTop_title > *{
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+#title_line {
+    width: 1px; height: 50px;
+    background: white;
+
+    position: relative;
+    left: 50%;
+}
+.subTop .subTop_title h1{
+    font-size: 1.5rem;
+}
+.subTop .subTop_title h3{
+    font-size: 1rem;
+    font-family: 'YetHangul';
+    font-weight: 100;
+}
+
+.subTop_title ul{
+    margin-top: 10px;
+}
+.subTop_title ul li {
+    display: inline-block;
+}
+.subTop_title ul li a{
+    color: white;
+    display: inline-block;
+    width: 100%;
+    padding: 0px 5px;
+    font-size: 0.7rem;
+}
+
+.subTop_title ul li:nth-child(2) a:before,
+.subTop_title ul li:nth-child(3) a:before,
+.subTop_title ul li:nth-child(4) a:before,
+.subTop_title ul li:nth-child(5) a:before{
+    content: ">";
+    display: inline-block;
+    margin-right: 10px;
+}
+input:focus{
+    outline: none;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .subTop{
+        height: 400px;
+    }
+    .subTop .subTop_title h1{
+        font-size: 1.8rem;
+    }
+    .subTop_title ul li a{
+        font-size: 0.8rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .subTop{
+        height: 450px;
+    }
+    .subTop .subTop_title h1{
+        font-size: 2rem;
+    }
+    .subTop_title ul li a{
+        font-size: 0.9rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .subTop{
+        height: 500px;
+    }
+    .subTop .subTop_title h1{
+        font-size: 2.3rem;
+    }
+    .subTop .subTop_title h3{
+        font-size: 1.1rem;
+    }
+    .subTop_title ul li a{
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .subTop{
+        height: 550px;
+    }
+    .subTop .subTop_title h1{
+        font-size: 2.5rem;
+    }
+    .subTop .subTop_title h3{
+        font-size: 1.1rem;
+    }
+    .subTop_title ul li a{
+        font-size: 0.9rem;
+    }
+
+}

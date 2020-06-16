@@ -1,0 +1,565 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+/*.go{
+    display: block;
+    width: 200px;
+    text-align: center;
+    color: #261308;
+    border: 2px solid #261308;
+}
+.go:before{
+    content:'';
+    display: block;
+    width: 0;
+    height: 100%;
+    transition: 0.5s;
+    background-color: #261308;
+    
+    position: absolute;
+    top:0;
+    z-index: -1;
+    
+}
+.go:hover:before{
+    width: 100%;
+}
+.go:hover{
+    border: 2px solid #261308;
+    color: white;
+    
+}*/
+
+
+/* Main1 */
+.slides{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+.slide_item{
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top:0; left:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.slide1{background-image: url("../img/1/slide1.jpg"); background-position: 45% 50%;}
+.slide2{background-image: url("../img/1/slide2.jpg");}
+.slide3{background-image: url("../img/1/slide3.jpg"); background-position: 70% 50%;}
+.slide4{background-image: url("../img/1/slide4.jpg"); background-position: 50% 50%;}
+
+
+.slide_item > .textBox{
+    width: 100%;
+    position: absolute;
+    left: 50%; top: 30%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.black h1{
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    word-break: keep-all;
+    padding: 0 20px;
+    
+    text-shadow: 2px 2px 5px black,
+        3px 3px 5px black;
+}
+.slide_item > .textBox > .go{
+    margin: 40px auto 0;
+    color: white;
+    border: 2px solid white;
+    text-shadow: 2px 2px 5px black,
+        3px 3px 5px black;
+}
+.textBox > .go:before{
+    background-color: #1e4a6e;
+}
+.textBox > .go:hover{
+    border: 2px solid #1e4a6e;
+}
+
+
+
+#scrollBox{
+    z-index: 999;
+}
+#scrollBox h5{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.2em;
+}
+#scrollBox h5:after{
+    content: "";
+    display: block;
+    height: 30px;
+    width: 2px;
+    background-color: white;
+    transform: translateX(20px);
+    
+    transition: 1s;
+    animation: scroll 1.5s infinite;
+}
+@keyframes scroll{
+    0%{margin-top: 30px;}
+    50%{margin-top: 0;}
+    100%{margin-top:30px;}
+}
+
+/* main2 */
+#main2, #main3{
+    padding-top:90px; /* 70px 9.00900900900901vh*/
+    box-sizing: border-box;
+}
+#accommodation{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#acmhead{
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    margin-top: 5vh;
+}
+#acmhead img{ /*밀튼*/
+    vertical-align: middle;
+    width: 25px;
+    margin-right: 5px;
+}
+#acmhead h1{
+    display: inline-block;
+    font-size: 2rem;
+    color: #5d360e;
+}
+#acmBox1, #acmImg1{
+    display: none;
+}
+
+#acmBox2{
+    position: absolute;
+    top: 37%; right: 0;
+    transform: translateY(-50%);
+    width: 98%;
+    max-width: 850px;
+    background-color: #bfb0a3;
+    z-index: -1;
+    box-sizing: border-box;
+}
+#acmBox2:before {
+    content: "";
+    display: block;
+    padding-top: 50%; /* 1:1 비율 */
+}
+
+#acmImg2{
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+    width: 90%;
+    max-width: 740px;
+    
+}
+#acmBox2 p{
+    position: absolute;
+    padding: 0; margin: 0; right: 10px; top: 20px;
+    font-size: 2rem;
+    color: white;
+}
+#acmBtn{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+#acmBtn li{
+    text-align: center;
+    padding: 1vh 0;
+    box-sizing: border-box;
+    color: #261308;
+    cursor: pointer;
+}
+#acmBtn li.on{
+    background-color: #261308;
+    color: white;
+}
+
+/* main3 */
+#main3{
+    background-color: #261308;
+    
+    position: relative;
+    overflow: hidden;
+}
+#prmhead{
+    margin-top: 10vh;
+    width: 100%;
+    position: relative;
+}
+#prmhead h1{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+#prmhead img{ /*밀튼2*/
+    width: 50px;
+    position: absolute;
+    top: -25px; right: 75px;
+}
+
+.swiper-container {
+    /*width: 100%;
+    height: 100%;
+    margin-top: 50px;*/
+    
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    margin-top: 50px;
+    overflow: visible;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    
+    
+    background-color:#261308;
+    width: 90%;
+    margin: 0 2.5%; /*모바일에서는 10%로 변경*/
+}
+
+.swiper-slide img{
+    width: 100%;
+}
+
+@keyframes ani{
+    0%{width: 30%;}
+}
+
+#prmBtn{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#prmBtn li{
+    background-color: rgba(255,255,255,0.3);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 2.5vh 0;
+    border: 1px solid #261308;
+}
+#prmBtn li.on{
+    background-color: #261308;
+}
+
+/*main4*/
+#main4{
+    padding: 12.87001287001287vh 0; /* 100px */
+    box-sizing: border-box;
+}
+#benefits{
+    background-color: #f7f2eb;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#bnfhead{
+    text-align: center;
+}
+#bnfhead h1{
+    font-size: 1.5rem;
+}
+#bnfhead p{
+    padding: 10px 10px 0 10px;
+    word-break: keep-all;
+}
+#bnflist img{
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+}
+#bnflist{
+    /*padding: 30px 0;*/
+    padding: 5vw 0;
+}
+#bnflist li{
+    padding: 5px 0; /*top bot 10*/
+}
+#bnflist span{
+    font-size: 0.8rem;
+    text-indent: 10px;
+    display: inline-block;
+}
+#bnfBtn > .go{
+    width: 300px;
+    border: 1px solid #261308;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {  
+    .black h1{
+        font-size: 1.8rem;
+    }
+    #acmhead h1, #prmhead h1, #bnfhead h1{
+        font-size: 2.3rem;
+    }
+    #bnflist img{
+        width: 40px;
+        height: 40px;
+    }
+    #bnflist span{
+        font-size: 1rem;
+    }
+    #bnflist{
+        padding: 30px 0;
+    }
+    #bnflist li{
+        padding: 5px 0; /*top bot 10*/
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .black h1{
+        font-size: 2rem;
+    }
+    #acmhead h1, #prmhead h1, #bnfhead h1{
+        font-size: 2.5rem;
+    }
+    #acmBtn{
+        position: absolute;
+        bottom: 30px;
+        margin: 0 auto;
+        padding: 0 50px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    #acmBtn li{
+        padding: 10px 50px;
+        width: 50%;
+        float: left;
+    }
+    .milton{
+        display: none;
+    }
+    .swiper-slide{
+        width: 70%;
+        margin: 0;
+    }
+    .swiper-slide-prev, .swiper-slide-next{
+        transform: scale(0.8);
+        transition: all 0.5s;
+    }
+    #prmBtn{
+        display: flex;
+    }
+    #prmBtn li{
+        flex: 1;
+        padding: 30px 0;
+    }
+    
+    #bnflist{
+        display: grid;
+        grid-template: repeat(2, 1fr)/ repeat(2, 1fr);
+        grid-column-gap: 100px;
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .black h1{
+        font-size: 2.5rem;
+    }
+    
+    #main2, #main3{
+        padding-top: 95px; /* 95px 12.226512226512227vh*/
+        box-sizing: border-box;
+    }
+    #acmhead h1, #prmhead h1, #bnfhead h1{
+        font-size: 2.8rem;
+    }
+    #acmBox1, #acmImg1{
+        display: block;
+    }
+    #acmImg1{
+        position: absolute;
+        top: 50%; left: 30px;
+        transform: translateY(-30%);
+        width: 40%;
+        max-width: 700px;
+    }
+    #acmBox1{
+        position: absolute;
+        top: 43%; left: 10%;
+        transform: translateY(-50%);
+        width: 40%;
+        max-width: 750px;
+        background-color: #a67b56;
+    }
+    #acmBox1:before {
+        content: "";
+        display: block;
+        padding-top: 40%;
+    }
+    
+    #acmImg2{
+        width: 40%;
+    }
+    #acmBox2{
+        width: 45%;
+    }
+    
+    
+    /*
+    #acmBox2{
+        position: absolute;
+        top: 35%; right: 10%;
+        transform: translateY(-50%);
+        width: 90%;
+        max-width: 740px;
+        background-color: #bfb0a3;
+        z-index: -1;
+        box-sizing: border-box;
+    }
+    #acmBox2:before {
+        content: "";
+        display: block;
+        padding-top: 50%;
+    }
+
+    #acmImg2{
+        position: absolute;
+        top: 50%; right: 0;
+        transform: translateY(-50%);
+        width: 90%;
+        max-width: 740px;
+
+    }
+    #acmBox2 p{
+        position: absolute;
+        padding: 0; margin: 0; right: 10px; top: 20px;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    
+    */
+    
+    .swiper-slide {
+        background-color:#261308;
+        max-width: 300px;
+        width: 20%;
+        margin: 0 10%;
+    }
+    .swiper-slide-active{
+        transform: scale(2);
+        transition: all 0.5s;
+    }
+    .swiper-slide-prev, .swiper-slide-next{
+        transform: scale(1.5);
+        transition: all 0.5s;
+    }
+    
+    #bnflist img{
+        width: 50px;
+        height: 50px;
+    }
+    #bnflist{
+        padding: 50px 0;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .black h1{
+        font-size: 3rem;
+    }
+    #acmBtn{
+        position: absolute;
+        bottom: 30px;
+        margin: 0 auto;
+        display: flex;
+        padding: 0 20px;
+        box-sizing: border-box;
+        justify-content: flex-end;
+    }
+    #acmBtn li{
+        padding: 10px 55px;
+        float:none;
+        width: auto;
+    }
+    #acmBtn a{
+        font-size: 1.2rem;
+    }
+    
+    #prmhead{
+        margin-top: 5vh;
+    }
+    #bnflist{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 80px 0;
+    }
+    #bnflist li{
+        padding-left: 45px;
+        padding-right: 45px;
+        
+        float: none;
+        width: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

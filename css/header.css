@@ -1,0 +1,194 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css');
+
+
+/*header*/
+header{
+    width: 100%;
+    /*height: 132px;*/ /*최소값 170*/
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#logo{height: 100%;}
+#logo>img{
+    display: block; /*여백공백 없애기 위함*/
+    height: 132px;
+    max-height: 132px;
+    min-height: 90px;
+    padding: 10px 0 10px 35px;
+    box-sizing: border-box;
+}
+
+#mo_btn{
+    color: white;
+    cursor: pointer;
+}
+.mobileLayer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+.mobileMenu{
+    position: absolute;
+    top: 0; left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+.mobileMenu #xBtn{
+    color: white;
+    padding: 30px;
+    cursor: pointer;
+    text-align: end;
+}
+.mobileMenu a{
+    color: white;
+}
+.mobileMenu a:hover{
+    color: orange;
+}
+.mobileMenu .gnb{
+    text-align: center;
+}
+.mobileMenu .gnb > li > a{
+    line-height: 70px;
+    font-size: 1.2rem;
+}
+.mobileMenu .snb{
+    line-height: 30px;
+    display: none;
+}
+.mainMenu{
+    display: none;
+}
+
+.info{
+    display: flex;
+}
+.info i{
+    font-size: 1.5em;
+    color: white;
+}
+.info li:nth-child(2) i{
+    padding-left: 10px;
+}
+.infoTxt{
+    font-size: 0;
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    header{
+        padding: 0 20px;
+    }
+    #logo>img{
+        height: 170px;
+        max-height: 170px;
+        min-height: 90px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    
+    
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    header{
+        justify-content: space-around;
+        padding: 0;
+        height: 95px;
+    }
+    #mo_btn{
+        display: none;
+    }
+    
+    #logo>img{
+        width: auto;
+        height: 95px;
+        min-height: 95px;
+        padding: 10px 0;
+    }
+    
+    .mainMenu{
+        width: 70%;
+        display: block;
+    }
+    .mainMenu .gnb{
+        display: flex;
+        /* height 100%, align-item 쓰면 가운데로 오지만 "li 크기를 지정"해야 서브메뉴가 나옴*/
+    }
+    .mainMenu .gnb > li{
+        position: relative;
+        flex: 1;
+        text-align: center;
+        height: 95px;
+        line-height: 95px;
+    }
+    .mainMenu .gnb > li > a{
+        font-size: 1.3rem;
+        color: white;
+        width: 100%;
+        display: block;
+    }
+    .mainMenu .gnb > li:after{
+        content: "";
+        border-bottom: 2px solid white;
+        width: 0;
+        display: block;
+        transition-duration: .4s;
+        margin-top:  -20px;
+
+    }
+    .mainMenu .gnb > li:hover:after{
+        width: 100%;
+    }
+
+    .mainMenu .gnb > li:hover > .snb{
+        display: block;
+    }
+    
+    .mainMenu .snb{
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 95px;
+        left: 0;
+        background-color: rgba(0,0,0,0.2);
+        border: 2px solid white;
+    }
+    .mainMenu .snb > li{
+        line-height: normal;
+        padding: 10px 0;
+    }
+    .mainMenu .snb > li > a{
+        font-size: 1.2rem;
+        width: 100%;
+        display: block;
+        
+        color: white;
+        padding: 0;
+    }
+    .mainMenu .snb li:hover a{
+        color: #1e4a6e;
+        font-weight: bold;
+    }
+    .mainMenu .snb li:hover{
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    
+}

@@ -1,0 +1,141 @@
+<script>
+    /*모바일 헤더*/
+    var mo_layer = $(".mobileLayer");
+        var mo_gnb = $(".mobileMenu > .gnb");
+        var mo_btn = $("#mo_btn");
+        var xBtn = $("#xBtn");
+
+        mo_btn.click(function(){
+            mo_layer.fadeIn(300);
+        });
+        xBtn.click(function(){
+            mo_gnb.find(".snb").slideUp();
+            mo_layer.fadeOut(300);
+        });
+        mo_gnb.find("li").click(function(){
+            $(this).children(".snb").slideToggle(500);
+        });
+    
+    //구현
+    $(window).scroll(function(){
+        var w = $(this).width();
+        
+        pcHeader();
+    });
+    
+    var lastScrollTop = 0;
+    
+    function pcHeader(){
+        var sct = $(this).scrollTop();
+        var inh = $(this).innerHeight()/50;
+        
+        $("#logo img").css("height", "90px"); 
+
+        if ((sct > lastScrollTop) && (sct >= inh)) {
+            $("header").slideUp();
+            dark_Change();
+
+        }else if(sct <= lastScrollTop){
+            $("header").show();
+            if(sct < inh){
+                white_Change();
+            }
+        }
+        lastScrollTop = sct;
+    }
+    
+    function white_Change(){
+        $("header").css("background-color","rgba(0,0,0,0)");
+        $("#logo img").attr("src","/img/icon/logo_w.png");
+        $(".mainMenu > ul > li > a").css("color","white");
+        mo_btn.css("color","white");
+        $(".info i").css("color","white");
+        $(".mainMenu .snb").css("background-color","rgba(0,0,0,0.2)");
+    }
+    function dark_Change(){
+        $("header").css("background-color","white");
+        $("#logo img").attr("src","/img/icon/logo_b.png");
+        $(".mainMenu > ul > li > a").css("color","black");
+        mo_btn.css("color","black");
+        $(".info i").css("color","black");
+        $(".mainMenu .snb").css("background-color","rgba(0,0,0,0.4)");
+    }
+    
+    
+/*    $(window).resize(function(){
+        var w = $(this).width();
+        if(w >= 992){
+            //모바일(태블릿)상태에서 사이즈조정 후 pc창일시 헤더크기가 커져있음 (초기화)
+            $("#logo img").css("height","95px");
+        }else if(w >= 576){
+            //pc에서 slide up 상태에서 사이즈조정되면 헤더가 보이지 않음 (초기화)
+            $("header").show();
+            $("#logo img").css("height","170px");
+        }else{
+            $("#logo img").css("height","132px");
+        }
+    });*/
+//수정필요
+    
+</script>
+
+<i id="mo_btn" class="fas fa-bars fa-2x"></i>
+<div class="mobileLayer">
+    <nav class="mobileMenu">
+        <i id="xBtn" class="fas fa-times fa-3x"></i>
+        <ul class="gnb">
+            <li> <a href="javascript:;">ABOUT</a>
+                <ul class="snb">
+                    <li><a href="html/intro.html">Intro</a></li>
+                    <li><a href="html/notice.html">Notice</a></li>
+                    <li><a href="html/reservation.html">Reservation</a></li>
+                </ul>
+            </li>
+            <li> <a href="javascript:;">ACCOMMODATION</a>
+                <ul class="snb">
+                    <li><a href="html/deluxe.html">Deluxe</a></li>
+                    <li><a href="html/deluxe_MV.html">Deluxe Mountain View</a></li>
+                    <li><a href="html/executive.html">Executive</a></li>
+                    <li><a href="html/executive_MV.html">Executive Mountain View</a></li>
+                    <li><a href="html/suite.html">Suite</a></li>
+                </ul>
+            </li>
+            <li><a href="html/dining.html">DINING</a></li>
+            <li><a href="html/service.html">SERVICE</a></li>
+            <li><a href="html/promotion.html">PROMOTION</a></li>
+        </ul>
+    </nav>
+</div>
+
+<a id="logo" href="/index.html"><img src="/img/icon/logo_w.png" alt=""></a>
+<nav class="mainMenu">
+    <ul class="gnb">
+        <li> <a href="intro.html">ABOUT</a>
+            <ul class="snb">
+                <li><a href="intro.html">Intro</a></li>
+                <li><a href="notice.html">Notice</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+            </ul>
+        </li>
+        <li> <a href="deluxe.html">ACCOMMODATION</a>
+            <ul class="snb">
+                <li><a href="deluxe.html">Deluxe</a></li>
+                <li><a href="deluxe_MV.html">Deluxe Mountain View</a></li>
+                <li><a href="executive.html">Executive</a></li>
+                <li><a href="executive_MV.html">Executive Mountain View</a></li>
+                <li><a href="suite.html">Suite</a></li>
+            </ul>
+        </li>
+        <li><a href="dining.html">DINING</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="promotion.html">PROMOTION</a></li>
+    </ul>
+</nav>
+<ul class="info">
+    <li>
+        <a href="/html/signIn.html"><i class="far fa-user"></i></a>
+    </li>
+    <li>
+        <a href="/html/signUp.html"><i class="far fa-edit"></i></a>
+    </li>
+</ul>

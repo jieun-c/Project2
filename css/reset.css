@@ -1,0 +1,52 @@
+*{margin: 0; padding: 0;}
+li{list-style: none;}
+a{text-decoration: none;}
+
+/*구조*/
+html, body{height: 100%;}
+header{position: fixed;}
+#wrap{
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#container{
+    flex: 1;
+}
+.main{
+    position: relative;
+    height: 100vh;
+}
+
+/* 버튼 */
+.go{
+    display: block;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #261308;
+    border: 2px solid #261308;
+
+    position: relative;
+    transform: translate(0);
+}
+.go:before{
+    content: '';
+    display: block;
+    width: 0;
+    height: 100%;
+    transition: .5s;
+    background-color: #261308;
+
+    position: absolute;
+    z-index: -1;
+}
+.go:hover:before{
+    width: 100%;
+}
+.go:hover{
+    border: 2px solid #261308;
+    color: white;
+}

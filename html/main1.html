@@ -1,0 +1,74 @@
+<script>
+    var slide = $(".slide_item");
+        var current = 0;
+    
+        
+        //초기화
+        slide.eq(current).css("left","0");
+        slide.eq(current).find(".textBox").stop().animate({top:"40%", opacity:"1"},1000);
+        
+        //자동 슬라이드
+        setInterval(function(){
+            var prev = slide.eq(current);
+            slideShow(prev, 0, "-100%");
+            
+            current++;
+            
+            if(current >= slide.length){
+                current = 0;
+                
+                slide.eq(0).find(".textBox").css({top:"30%", opacity:"0"});
+                slide.eq(1).find(".textBox").css({top:"30%", opacity:"0"});
+                slide.eq(2).find(".textBox").css({top:"30%", opacity:"0"});
+                slide.eq(3).find(".textBox").animate({top:"30%", opacity:"0"});
+            }
+            
+            var next = slide.eq(current);
+            slideShow(next, "100%", 0);
+            
+            
+        },4000);
+
+        function slideShow(tg, start, end){
+            tg.css("left",start).stop().animate({left:end},1000);
+            tg.find(".textBox").stop().delay(1000).animate({top:"40%", opacity:"1"},1000);
+        }
+</script>
+
+<ul class="slides">
+    <li class="slide_item slide1">
+        <div class="textBox">
+            <div class="black">
+                <h1>대한민국 수도 서울의 <br>비즈니스·문화·역사·쇼핑의 중심부</h1>
+            </div>
+            <a class="go" href="intro.html">바로가기</a>
+        </div>
+    </li>
+    <li class="slide_item slide2">
+        <div class="textBox">
+            <div class="black">
+                <h1>비즈니스 및 휴가를 위한 이상적인 공간</h1>
+            </div>
+            <a class="go" href="intro.html">바로가기</a>
+        </div>
+    </li>
+    <li class="slide_item slide3">
+        <div class="textBox">
+            <div class="black">
+                <h1>세계 각국의 맛을 즐길 수 있습니다</h1>
+            </div>
+            <a class="go" href="intro.html">바로가기</a>
+        </div>
+    </li>
+    <li class="slide_item slide4">
+        <div class="textBox">
+            <div class="black">
+                <h1>사계절 이용 가능한 고품격 시설 서비스</h1>
+            </div>
+            <a class="go" href="intro.html">바로가기</a>
+        </div>
+    </li>
+</ul>
+<div id="scrollBox">
+    <h5>Scroll</h5>
+</div>

@@ -1,0 +1,74 @@
+<script>
+    var title_bnf = $("#bnfhead h1");
+    var item_bnf = $("#bnflist > li");
+    
+    title_bnf.hide();
+    
+    
+    $(window).scroll(function(){
+        var main = $("#main4").offset().top;
+        var w = $(window).scrollTop();
+        var del = 1000;
+
+        if(main <= w * 1.3){
+            title_bnf.slideDown(1000);
+            spin();
+            
+        }else{
+            title_bnf.hide();
+        }
+    });
+    
+    function spin(){
+        item_bnf.eq(0).animate({deg: 360},{
+            duration: 500, 
+            step: function(now){
+                $(this).css({ transform: 'rotateY(' + now + 'deg)'});
+            }});
+        
+        item_bnf.eq(1).delay(500).animate({deg: 360},{
+            duration: 500, 
+            step: function(now){
+                $(this).css({ transform: 'rotateY(' + now + 'deg)'});
+            }});
+        
+        item_bnf.eq(2).delay(1000).animate({deg: 360},{
+            duration: 500, 
+            step: function(now){
+                $(this).css({ transform: 'rotateY(' + now + 'deg)'});
+            }});
+        
+        item_bnf.eq(3).delay(1500).animate({deg: 360},{
+            duration: 500, 
+            step: function(now){
+                $(this).css({ transform: 'rotateY(' + now + 'deg)'});
+            }});
+    }
+</script>
+   
+
+<div id="benefits">
+    <div id="bnfhead">
+        <h1>Hilton Honors 혜택</h1>
+        <p>모든 회원은 즉시 다음과 같은 혜택을 누리실 수 있습니다.</p>
+    </div>
+    <ul id="bnflist">
+        <li>
+            <img src="img/icon/dollar_blue.png" alt="">
+            <span>전 세계 호텔 최저가</span>
+        </li>
+        <li>
+            <img src="img/icon/wifi_blue.png" alt="">
+            <span>무료 Wi-Fi</span>
+        </li>
+        <li>
+            <img src="img/icon/mobile_blue.png" alt="">
+            <span>디지털 체크인</span>
+        </li>
+        <li>
+            <img src="img/icon/coin_blue.png" alt="">
+            <span>무료 숙박에 사용할 수 있는 포인트</span>
+        </li>
+    </ul>
+    <a id="bnfBtn" class="go" href="signUp.html">Hilton Honors 가입하기</a>
+</div>
