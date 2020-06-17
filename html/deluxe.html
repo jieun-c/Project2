@@ -14,6 +14,14 @@
         $(document).ready(function(){
             $("header").load("header_sub.html");
             $("footer").load("footer.html");
+            
+            $(window).scroll(function(e){
+                e.preventDefault();
+                var i = 60;  
+                var st = $(window).scrollTop()/10+i;
+                $(".subTop_title").css({top: st+"%"});
+                console.log($(window).scrollTop());
+            });
         });
     </script>
     <style>
@@ -90,7 +98,6 @@
             margin-left: 5%;
             /*overflow: hidden;*/
         }
-        
         .roomcontent .roombtn{
             display: flex;
             justify-content: flex-start;

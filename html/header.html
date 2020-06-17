@@ -128,6 +128,8 @@
     
     $(window).resize(function(){
         var w = $(this).width();
+        var sct = $(this).scrollTop();
+        var inh = $(this).innerHeight()/10;
         
         if(w >= 992){
             //모바일(태블릿)상태에서 사이즈조정 후 pc창일시 헤더크기가 커져있음 (초기화)
@@ -135,15 +137,27 @@
         }else if(w > 576){
             //pc에서 slide up 상태에서 사이즈조정되면 헤더가 보이지 않음 (초기화)
             $("header").show();
-            $("#logo img").css("height","170px");
+            if(sct < inh){ 
+                $("#logo img").css("height","170px");
+                //줄어든 상태에서 늘리면 자동으로 커지기 때문에 조건문 사용
+            }
         }else{
-            $("#logo img").css("height","132px");
+            if(sct < inh){
+                $("#logo img").css("height","132px");
+            }
         }
     });
     
+    /*$(window).scroll(function(e){
+        e.preventDefault();
+        var i = 30;  
+        var st = $(window).scrollTop()/10+i;
+        $("header").css({top: st+"%"});
+    });*/
     
     //구현
-    $(window).scroll(function(){
+    $(window).scroll(function(e){
+        e.preventDefault();
         var w = $(this).width();
         
         if(w >= 992){
@@ -184,15 +198,15 @@
             white_Change();
             
             if(sct == 0){
-               $("#logo img").stop().animate({height: h}); //css에서 각각max조정됐으나(XX)
+               $("#logo img").css({height: h});
             }else if(sct > lastScrollTop){
-                $("#logo img").stop().animate({height: "-=20"});
+                $("#logo img").css({height: "-=1"});
             }else{
-                $("#logo img").stop().animate({height: "+=20"});
+                $("#logo img").css({height: "+=1"});
             }
         }else{
-            dark_Change();                                   //스크롤발생시매번계산하기때문에 (OO)
-            $("#logo img").stop().animate({height: "90px"}); // 최소최대높이 변수로 지정 필요
+            dark_Change();
+            $("#logo img").css({height: "90px"});
         }
         lastScrollTop = sct;
     }

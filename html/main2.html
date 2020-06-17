@@ -22,11 +22,11 @@
         
         acmImg1.stop().animate({left: hidden}, 500, function(){
             imgChange();
-            acmImg1.delay(200).stop().animate({left: leftShow},300);
+            acmImg1.stop().animate({left: leftShow},500);
         });
         
         acmImg2.stop().animate({right: hidden}, 500, function(){
-            acmImg2.delay(200).stop().animate({right: rightShow}, 300);
+            acmImg2.stop().animate({right: rightShow},500);
         });
     }
     
@@ -61,8 +61,8 @@
                 acmImg2.attr("src","img/2/deluxe2.jpg");
                 break;
             case 1: 
-                acmImg1.delay(1000).attr("src","img/2/deluxeMountain1.jpg");
-                acmImg2.delay(1000).attr("src","img/2/deluxeMountain3.jpg");
+                acmImg1.attr("src","img/2/deluxeMountain1.jpg");
+                acmImg2.attr("src","img/2/deluxeMountain3.jpg");
                 break;
             case 2: 
                 acmImg1.attr("src","img/2/executive1.jpg");
