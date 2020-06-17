@@ -1,19 +1,38 @@
 <script>
     /*모바일 헤더*/
-    var mo_layer = $(".mobileLayer");
-        var mo_gnb = $(".mobileMenu > .gnb");
-        var mo_btn = $("#mo_btn");
-        var xBtn = $("#xBtn");
+    var mobile = $(".mobile"),
+        mo_gnb = $(".mobileMenu > .gnb > li"),
+        mo_btn = $("#mo_btn"),
+        xBtn = $("#xBtn"),
+        glayLayer = $(".glayLayer");
+    
+    var clicked = 10;
 
         mo_btn.click(function(){
-            mo_layer.fadeIn(300);
+            mobile.fadeIn(300);
         });
         xBtn.click(function(){
             mo_gnb.find(".snb").slideUp();
-            mo_layer.fadeOut(300);
+            mobile.fadeOut(300);
         });
-        mo_gnb.find("li").click(function(){
-            $(this).children(".snb").slideToggle(500);
+        glayLayer.click(function(){
+            mo_gnb.find(".snb").slideUp();
+            mobile.fadeOut(300);
+        });
+    
+        mo_gnb.click(function(){
+            var tg = $(this).index();
+            
+            if(clicked == tg){
+                mo_gnb.find(".snb").slideUp();
+                clicked = 10;
+                return;
+            }
+            
+            mo_gnb.find(".snb").slideUp(500);
+            mo_gnb.eq(tg).find(".snb").slideDown();
+            
+            clicked = tg;
         });
     
     //구현
@@ -80,8 +99,9 @@
 </script>
 
 <i id="mo_btn" class="fas fa-bars fa-2x"></i>
-<div class="mobileLayer">
-    <nav class="mobileMenu">
+<div class="mobile">
+    <div class="glayLayer"></div>
+    <nav class="mobileMenu overLayer">
         <i id="xBtn" class="fas fa-times fa-3x"></i>
         <ul class="gnb">
             <li> <a href="javascript:;">ABOUT</a>

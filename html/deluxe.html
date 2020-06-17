@@ -27,7 +27,6 @@
     <style>
         @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
         #container{
-            background-color: #e8e3dc;
             margin-bottom: 50px;
         }
         #pcImg{
@@ -37,9 +36,13 @@
             background-image: url("../img/1/subTop_acm.jpg");
         }
         .acmtitle{
-            width: 70%;
-            margin: 30px auto 0;
+            width: 100%;
             position: relative;
+            padding-top: 30px;
+            box-sizing: border-box;
+        }
+        .acmtitle > *{
+            text-align: center;
         }
         .acmtitle h3{
             font-family: 'YetHangul';
@@ -57,12 +60,17 @@
         .acmtitle img{
             width: 20px;
             height: 20px;
+            
             position: absolute;
             top: 15px;
-            left: -25px;
+            left: 25px;
+        }
+        .contents1, .acmtitle{
+            background-color: #e8e3dc;
+            position: relative;
         }
         .acminfo{
-            margin-top: 30px;
+            padding-top: 30px;
         }
         .acminfo h2{
             text-align: center;
@@ -180,7 +188,7 @@
         /* Small devices (landscape phones, 576px and up)*/
         @media (min-width: 576px) {
             .contents1{
-                margin-top: 50px;
+                padding-top: 50px;
             }
             .acmtitle h3{
                 font-size: 1.4rem;
@@ -206,8 +214,8 @@
         @media (min-width: 768px) {
             .contents1{
                 display: flex;
-                margin-top: 50px;
-                margin-bottom: 30px;
+                padding-top: 50px;
+                padding-bottom: 30px;
                 justify-content: flex-end;
             }
             .roomcontent{
@@ -273,7 +281,7 @@
                 font-size: 1.1rem;
             }
             .contents1{
-                margin-top: 100px;
+                padding-top: 100px;
             }
             .acminfo h2{
                 font-size: 2rem;
@@ -323,7 +331,7 @@
             </div>
             
             <div class="acmtitle">
-                <img src="/img/icon/acm.png" alt="">
+                <img src="../img/icon/acm.png" alt="">
                 <h3>서울에서의 하루를 마치고 휴식을 즐기기에 적합한 공간입니다.</h3>
                 <p>42인치 LCD TV로 영화를 감상하며 휴식을 취하고, 북적임과 활기가 넘치는 서울 도심 전망을 감상해 보십시오.<br>
                 무료 WiFi, 잡지, 신문 및 생수도 준비되어 있습니다.</p>

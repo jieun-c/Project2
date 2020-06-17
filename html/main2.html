@@ -4,17 +4,22 @@
         acmImg2 = $("#accommodation > #acmImg2");
     
     var btnIndex = 0;
+    var clicked = 0;
 
     
     acmBtn.click(function(){
         var tg = acmBtn.index(this);
         btnIndex = tg;
         
+        if(tg == clicked){
+            return;
+        }
+        
         acmBtn.removeClass("on");
         $(this).addClass("on");
-        
         acmSlide("-100%", "30px", 0);
         
+        clicked = tg;
     });
     
     function acmSlide(hidden, leftShow, rightShow){

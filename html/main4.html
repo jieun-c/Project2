@@ -20,25 +20,25 @@
     });
     
     function spin(){
-        item_bnf.eq(0).animate({deg: 360},{
+        item_bnf.eq(0).find("img").animate({deg: 720},{
             duration: 500, 
             step: function(now){
                 $(this).css({ transform: 'rotateY(' + now + 'deg)'});
             }});
         
-        item_bnf.eq(1).delay(500).animate({deg: 360},{
+        item_bnf.eq(1).find("img").delay(500).animate({deg: 720},{
             duration: 500, 
             step: function(now){
                 $(this).css({ transform: 'rotateY(' + now + 'deg)'});
             }});
         
-        item_bnf.eq(2).delay(1000).animate({deg: 360},{
+        item_bnf.eq(2).find("img").delay(1000).animate({deg: 720},{
             duration: 500, 
             step: function(now){
                 $(this).css({ transform: 'rotateY(' + now + 'deg)'});
             }});
         
-        item_bnf.eq(3).delay(1500).animate({deg: 360},{
+        item_bnf.eq(3).find("img").delay(1500).animate({deg: 720},{
             duration: 500, 
             step: function(now){
                 $(this).css({ transform: 'rotateY(' + now + 'deg)'});

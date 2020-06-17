@@ -27,19 +27,19 @@ header{
     color: white;
     cursor: pointer;
 }
-.mobileLayer{
+.mobile{display: none; position: absolute;}
+.glayLayer{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    display: none;
 }
 .mobileMenu{
-    position: absolute;
+    position: fixed;
     top: 0; left: 0;
-    width: 80%;
+    width: 75%;
     height: 100%;
     background-color: rgba(0,0,0,0.9);
 }
