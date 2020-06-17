@@ -18,6 +18,13 @@
             $("header").load("header_sub.html");
             $("footer").load("footer.html");
             
+            $(window).scroll(function(e){
+                e.preventDefault();
+                var i = 60;  
+                var st = $(window).scrollTop()/10+i;
+                $(".subTop_title").css({top: st+"%"});
+            });
+            
             var tos = $(".tos2 li");
             var clicked = 10;
             
@@ -76,6 +83,7 @@
             width: 90%;
             margin: 30px auto;
             background-color: #f7f2eb;
+            position: relative;
         }
         .join fieldset{
             border: none;

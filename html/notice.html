@@ -19,6 +19,13 @@
             $("header").load("header_sub.html");
             $("footer").load("footer.html");
             
+            $(window).scroll(function(e){
+                e.preventDefault();
+                var i = 60;  
+                var st = $(window).scrollTop()/10+i;
+                $(".subTop_title").css({top: st+"%"});
+            });
+            
             var listBox = $(".listBox"),
             numBox = listBox.find(".num"), /*1,2,3,4...*/
             num_btn = numBox.find("a"), /*1,2,3,4...*/
@@ -107,9 +114,10 @@
         }
         .subTop_bg{
             background-image: url("../img/1/subTop_about.jpg");
+            background-position: 70% center;
         }
         
-        #notice{font-family: 'YetHangul';}
+        #notice{font-family: 'YetHangul'; position: relative;}
         #notice h3{
             font-family: 'YetHangul';
             text-align: center;
@@ -179,6 +187,7 @@
         }
 
         .num a.active{background-color: #c3c3c3;}
+        
 
         /*form*/
 
@@ -246,7 +255,6 @@
 
         /* Medium devices (tablets, 768px and up)*/
         @media (min-width: 768px) {
-
         }
 
         /* Large devices (desktops, 992px and up)*/
@@ -479,16 +487,16 @@
 
                    
                     <div class="listBox">
-                        <a href="#" class="btnll"><img src="/img/icon/arrow_ll.gif" alt="arrow_ll"></a>
-                        <a href="#" class="btnlb"><img src="/img/icon/arrow_lb.gif" alt="arrow_lb"></a>
+                        <a href="#" class="btnll"><img src="../img/icon/arrow_ll.gif" alt="arrow_ll"></a>
+                        <a href="#" class="btnlb"><img src="../img/icon/arrow_lb.gif" alt="arrow_lb"></a>
                         <div class="num">
                             <a href="JavaScript:;" class="active">1</a>
                             <a href="JavaScript:;">2</a>
                             <a href="JavaScript:;">3</a>
                             <a href="JavaScript:;">4</a>
                         </div>
-                        <a href="#" class="btnrb"><img src="/img/icon/arrow_rb.gif" alt="arrow_rb"></a>
-                        <a href="#" class="btnrr"><img src="/img/icon/arrow_rr.gif" alt="arrow_rr"></a>
+                        <a href="#" class="btnrb"><img src="../img/icon/arrow_rb.gif" alt="arrow_rb"></a>
+                        <a href="#" class="btnrr"><img src="../img/icon/arrow_rr.gif" alt="arrow_rr"></a>
                     </div><!-- //listBox_layout -->
 
                     <div id="bottom_wrap">
