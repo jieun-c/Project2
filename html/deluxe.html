@@ -25,6 +25,7 @@
     </script>
     <style>
         @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
+        .ph{width: 740px; height: 457px;}
         #container{
             margin-bottom: 50px;
         }
@@ -124,20 +125,21 @@
             width: 100%;
         }
         
-        .roomcontent .slide:before {
+        .roomcontent .slides:before {
             content: "";
             display: block;
             padding-top: 70%; 
         }
-        .roomcontent .slide{
-            
-        }
-        .roomcontent .slide li{
+        .roomcontent .slides .slide_item{
             position: absolute;
             top: 40px; /*left: 100%;*/
             width: 100%;
         }
-        .slide img{
+        .roomcontent .slides .slide_item li{
+            position: absolute;
+            top: 0; left: 0;
+        }
+        .slides img{
             width: 100%;
         }
         .contents2{
@@ -334,8 +336,8 @@
                         <h1>ACCOMMODATION</h1>
                         <h3>객실안내</h3>
                         <ul>
-                            <li><a href="javascript:;">ACCOMMODATION</a></li>
-                            <li><a href="javascript:;">DELUXE</a></li>
+                            <li><a href="deluxe.html">ACCOMMODATION</a></li>
+                            <li><a href="deluxe.html">DELUXE</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -366,10 +368,16 @@
                         <li class="on">킹 게스트 룸</li>
                         <li>트윈 게스트 룸</li>
                     </ul>
-                    <ul class="slide">
-                        <li><img src="../img/2/deluxe1.jpg" alt=""></li>
-                        <li><img src="../img/2/deluxe2.jpg" alt=""></li>
-                    </ul>
+                    <div class="slides">
+                        <ul class="slide_item king">
+                            <li><img src="../img/2/deluxe1.jpg" alt=""></li>
+                            <li><img src="http://placehold.it/100X100" alt="" class="ph"></li>
+                        </ul>
+                        <ul class="slide_item twin">
+                            <li><img src="../img/2/deluxe2.jpg" alt=""></li>
+                            <li><img src="http://placehold.it/200X200" alt="" class="ph"></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="contents2">

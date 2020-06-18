@@ -37,6 +37,15 @@
         
     
     
+    $(".snb").hide();
+    $(".gnb>li").on({
+        mouseenter:function(){
+            $(this).find(".snb").stop().slideDown(300);
+        },
+        mouseleave:function(){
+            $(this).find(".snb").stop().slideUp(300);
+        }
+    });
     
     
     //참고 코드들 

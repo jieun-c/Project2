@@ -35,6 +35,18 @@
             clicked = tg;
         });
     
+    $(".snb").hide();
+    $(".gnb>li").on({
+        mouseenter:function(){
+            $(this).find(".snb").stop().slideDown(300);
+        },
+        mouseleave:function(){
+            $(this).find(".snb").stop().slideUp(300);
+        }
+    });
+    
+    
+    
     //구현
     $(window).scroll(function(){
         var w = $(this).width();

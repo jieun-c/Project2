@@ -128,9 +128,9 @@ header{
     .mainMenu .gnb{
         display: flex;
         /* height 100%, align-item 쓰면 가운데로 오지만 "li 크기를 지정"해야 서브메뉴가 나옴*/
+        position: relative;
     }
     .mainMenu .gnb > li{
-        position: relative;
         flex: 1;
         text-align: center;
         height: 95px;
@@ -155,14 +155,17 @@ header{
         width: 100%;
     }
 
-    .mainMenu .gnb > li:hover > .snb{
-        display: block;
-    }
+/*    .mainMenu .gnb > li:hover > .snb{
+        display: flex;
+    }*/
     
     .mainMenu .snb{
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         position: absolute;
         width: 100%;
+        height: 60px;
         top: 95px;
         left: 0;
         background-color: rgba(0,0,0,0.2);

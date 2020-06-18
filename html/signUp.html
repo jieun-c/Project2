@@ -34,7 +34,7 @@
                 $(this).find("span").css("transform","rotate(180deg)");
             });
             
-            //전체동의
+            //전체동의(체크박스)
             tos.eq(0).find("input[type=checkbox]").click(function(){
                 if($(this).prop("checked")){
                     tos.find("input[type=checkbox]").prop("checked",true);
@@ -44,8 +44,7 @@
             });
             
             
-            
-            //개별 동의
+            //개별 동의 (삼각형)
             tos.find("span").click(function(){
                 var tg = tos.find("span").index(this) + 1;
                 
@@ -66,6 +65,14 @@
             });
             
             
+            //개별동의(체크박스)
+            tos.find("input[name='chk']").click(function(){
+                if($("input[name='chk']:checked").length == 3){
+                    tos.eq(0).find("input[type=checkbox]").prop("checked",true);
+                }else {
+                    tos.eq(0).find("input[type=checkbox]").prop("checked",false); 
+                };
+            });
             
         });
     </script>
@@ -243,8 +250,8 @@
                         <h1>SIGN UP</h1>
                         <h3>회원가입</h3>
                         <ul>
-                            <li><a href="javascript:;">HOME</a></li>
-                            <li><a href="javascript:;">SIGN UP</a></li>
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="signUp.html">SIGN UP</a></li>
                         </ul>
                     </nav>
                 </div>
