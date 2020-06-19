@@ -6,7 +6,7 @@
         xBtn = $("#xBtn"),
         glayLayer = $(".glayLayer");
     
-    var clicked = 10;
+    var clicked_header = 10;
 
         mo_btn.click(function(){
             mobile.fadeIn(300);
@@ -23,20 +23,20 @@
         mo_gnb.click(function(){
             var tg = $(this).index();
             
-            if(clicked == tg){
+            if(clicked_header == tg){
                 mo_gnb.find(".snb").slideUp();
-                clicked = 10;
+                clicked_header = 10;
                 return;
             }
             
             mo_gnb.find(".snb").slideUp(500);
             mo_gnb.eq(tg).find(".snb").slideDown();
             
-            clicked = tg;
+            clicked_header = tg;
         });
     
-    $(".snb").hide();
-    $(".gnb>li").on({
+    $(".mainMenu .snb").hide();
+    $(".mainMenu .gnb>li").on({
         mouseenter:function(){
             $(this).find(".snb").stop().slideDown(300);
         },

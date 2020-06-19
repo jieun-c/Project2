@@ -6,7 +6,7 @@
         xBtn = $("#xBtn"),
         glayLayer = $(".glayLayer");
     
-    var clicked = 10;
+    var clicked_header = 10;
 
         mo_btn.click(function(){
             mobile.fadeIn(300);
@@ -23,22 +23,22 @@
         mo_gnb.click(function(){
             var tg = $(this).index();
             
-            if(clicked == tg){
-                mo_gnb.find(".snb").slideUp();
-                clicked = 10;
+            if(clicked_header == tg){
+                mo_gnb.find(".snb").stop().slideUp();
+                clicked_header = 10;
                 return;
             }
             
-            mo_gnb.find(".snb").slideUp(500);
-            mo_gnb.eq(tg).find(".snb").slideDown();
+            mo_gnb.find(".snb").stop().slideUp(500);
+            mo_gnb.eq(tg).find(".snb").stop().slideDown();
             
-            clicked = tg;
+            clicked_header = tg;
         });
         
     
     
-    $(".snb").hide();
-    $(".gnb>li").on({
+    $(".mainMenu .snb").hide();
+    $(".mainMenu .gnb>li").on({
         mouseenter:function(){
             $(this).find(".snb").stop().slideDown(300);
         },
@@ -303,7 +303,7 @@
 </div>
 
 <i id="mo_btn" class="fas fa-bars fa-2x"></i>
-<a id="logo" href="/index.html"><img src="img/icon/logo_w.png" alt=""></a>
+<a id="logo" href="index.html"><img src="img/icon/logo_w.png" alt=""></a>
 <nav class="mainMenu">
     <ul class="gnb">
         <li> <a href="html/intro.html">ABOUT</a>
