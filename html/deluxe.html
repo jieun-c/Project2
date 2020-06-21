@@ -21,11 +21,50 @@
                 var st = $(window).scrollTop()/10+i;
                 $(".subTop_title").css({top: st+"%"});
             });
+            
+            var clicked2 = 0;
+            var current = 0;
+            $(".slide_item").eq(0).css("right","0");
+            $(".slide_item li:first-child").css("display","block");
+            
+            setInterval(function(){
+                $(".slide_item").eq(clicked2).find("li").eq(current).fadeOut(500);
+
+                current++;
+
+                if(current >= $(".slide_item").eq(clicked2).find("li").length){
+                    current = 0;
+                }
+
+                $(".slide_item").eq(clicked2).find("li").eq(current).fadeIn(500);
+            
+            },2000);
+            
+
+            $(".roombtn li").click(function(){
+                current = 0;
+                var tg = $(this).index();
+                $(".roombtn li").removeClass("on");
+                $(this).addClass("on");
+                
+                if(tg == clicked2){
+                    return;
+                }
+
+                $(".slide_item").eq(clicked2).animate({right: "-100%"},500,function(){
+                    $(".slide_item").eq(tg).animate({right: 0}, 500);
+                });
+                
+                clicked2 = tg;
+            });
+            
+            
+            
+            
         });
     </script>
     <style>
         @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
-        .ph{width: 740px; height: 457px;}
         #container{
             margin-bottom: 50px;
         }
@@ -130,12 +169,17 @@
             display: block;
             padding-top: 70%; 
         }
+        .roomcontent .slides{
+            position: relative;
+            overflow: hidden;
+        }
         .roomcontent .slides .slide_item{
             position: absolute;
-            top: 40px; /*left: 100%;*/
+            top: 0; right: -100%;
             width: 100%;
         }
         .roomcontent .slides .slide_item li{
+            display: none;
             position: absolute;
             top: 0; left: 0;
         }
@@ -369,13 +413,13 @@
                         <li>트윈 게스트 룸</li>
                     </ul>
                     <div class="slides">
-                        <ul class="slide_item king">
+                        <ul class="slide_item">
                             <li><img src="../img/2/deluxe1.jpg" alt=""></li>
-                            <li><img src="http://placehold.it/100X100" alt="" class="ph"></li>
+                            <li><img src="http://placehold.it/740X457"></li>
                         </ul>
-                        <ul class="slide_item twin">
+                        <ul class="slide_item">
                             <li><img src="../img/2/deluxe2.jpg" alt=""></li>
-                            <li><img src="http://placehold.it/200X200" alt="" class="ph"></li>
+                            <li><img src="http://placehold.it/740X457" alt=""></li>
                         </ul>
                     </div>
                 </div>

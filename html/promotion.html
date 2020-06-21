@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/sub.css">
+    <script src = "../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("header").load("header_sub.html");
+            $("footer").load("footer.html");
+            
+            $(window).scroll(function(e){
+                e.preventDefault();
+                var i = 60;  
+                var st = $(window).scrollTop()/10+i;
+                $(".subTop_title").css({top: st+"%"});
+            });
+            
+            var menu = $("#menu > li");
+            var menu_prev = 0;
+            menu.click(function(){
+                var tg = $(this).index();
+                
+                if(tg == menu_prev){
+                    return;
+                }
+                
+                $("section").hide();
+                
+                switch(tg){
+                    case 0: $("section").fadeIn(500);
+                            break;
+                    case 1: $(".acm").fadeIn(500);
+                            break;
+                    case 2: $(".din").fadeIn(500);
+                            break;
+                    case 3: $(".etc").fadeIn(500);
+                            break;
+                    default: break;
+                }
+                
+                menu_prev = tg;
+            });
+            
+        });
+    </script>
+    <style>
+        @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
+        #container{
+            margin-bottom: 50px;
+        }
+        #pcImg{
+            display: none;
+        }
+        .subTop{
+            background-image: url("../img/1/subTop_promotion.jpg");
+        }
+        .subTop_title ul li:nth-child(2) a:before,
+        .subTop_title ul li:nth-child(3) a:before,
+        .subTop_title ul li:nth-child(4) a:before,
+        .subTop_title ul li:nth-child(5) a:before,
+        .subTop_title ul li:nth-child(6) a:before,
+        .subTop_title ul li:nth-child(7) a:before{
+            content: "|";
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .contents{
+            position: relative;
+            width: 100%;
+        }
+        section{
+            position: relative;
+            text-align: center;
+            padding: 1%;
+            margin-bottom: 50px;
+            font-family: 'YetHangul';
+        }
+        section > *{
+            color: black;
+        }
+        section h2{
+            position: absolute;
+            top: 5%; left: 0;
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 3px #818181;
+        }
+        section img{
+            width: 100%;
+        }
+        section h3{
+            padding: 0 5%;
+            word-break: keep-all;
+        }
+        .acm h2{background-color: rgba(255, 185, 185, 0.8);}
+        .din h2{background-color: rgba(255, 207, 255, 0.8);}
+        .etc h2{background-color: rgba(230, 255, 230, 0.8);}
+        
+        
+        /* Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) {
+
+        }
+
+        /* Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) {
+            .contents{
+                overflow: hidden;
+                max-width: 1250px;
+                margin: 0 auto;
+            }
+            section{
+                float: left;
+                width: 48%;
+                /*max-width: 570px;*/
+            }
+            
+        }
+
+        /* Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) {
+
+        }
+
+        /* Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+            #pcImg{
+                display: block;
+                width: 100%;
+                height: 550px;
+                filter: brightness(70%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div id="wrap">
+        <div id="container">
+            <div class="subTop">
+                <div class="subTop_bg">
+                    <img id="pcImg" src="../img/1/subTop_promotion.jpg" alt="">
+                    <nav class="subTop_title">
+                        <div id = "title_line"></div>
+                        <h1>PROMOTION</h1>
+                        <h3>프로모션</h3>
+                        <ul id="menu">
+                            <li><a href="JavaScript:;">전체</a></li>
+                            <li><a href="JavaScript:;">숙박</a></li>
+                            <li><a href="JavaScript:;">다이닝</a></li>
+                            <li><a href="JavaScript:;">기타</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="contents">
+                <section class="acm">
+                    <a href="JavaScript:;" target="_blank">
+                        <h2>숙박</h2>
+                        <img src="../img/5/acm1-1.jpg" alt="">
+                        <article>
+                            <h3>설레는 가족 호캉스, 맘 앤 키즈 패키지</h3>
+                            <p>Mom & Kids Package</p>
+                        </article>
+                    </a>
+                </section>
+                <section class="acm">
+                    <a href="JavaScript:;" target="_blank">
+                        <h2>숙박</h2>
+                        <img src="../img/5/acm2-1.png" alt="">
+                        <article>
+                            <h3>스위트 룸에서 즐기는 럭셔리 호캉스, 듀플렉스 스위트 패키지</h3>
+                            <p>Duplex Suite Package</p>
+                        </article>
+                    </a>
+                </section>
+                <section class="din">
+                    <a href="JavaScript:;" target="_blank">
+                        <h2>다이닝</h2>
+                        <img src="../img/5/dining1-1.png" alt="">
+                        <article>
+                            <h3>카페 395 프로모션 메뉴</h3>
+                            <p>Cafe 395 promotions</p>
+                        </article>
+                    </a>
+                </section>
+                <section class="din">
+                    <a href="JavaScript:;" target="_blank">
+                        <h2>다이닝</h2>
+                        <img src="../img/5/dining2-1.jpeg" alt="">
+                        <article>
+                            <h3>오크룸 야외 테라스에서 즐기는 바비큐 뷔페</h3>
+                            <p>Oak Room BBQ buffet on the outdoor terrace</p>
+                        </article>
+                    </a>
+                </section>
+                <section class="etc">
+                    <a href="JavaScript:;" target="_blank">
+                        <h2>기타</h2>
+                        <img src="../img/5/banquet1.jpg" alt="">
+                        <article>
+                            <h3>보다 안전하고 품격높은 미팅을 위한 무료 미팅 패키지</h3>
+                            <p>Meetings for Free Package</p>
+                        </article>
+                    </a>
+                </section>
+            </div>
+            
+            
+        </div> <!-- // container -->
+        <footer></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/sub.css">
+    <script src = "../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("header").load("header_sub.html");
+            $("footer").load("footer.html");
+            
+            $(window).scroll(function(e){
+                e.preventDefault();
+                var i = 60;  
+                var st = $(window).scrollTop()/10+i;
+                $(".subTop_title").css({top: st+"%"});
+            });
+            
+            var clicked2 = 0;
+            var current = 0;
+            $(".slide_item").eq(0).css("right","0");
+            $(".slide_item li:first-child").css("display","block");
+            
+            setInterval(function(){
+                $(".slide_item").eq(clicked2).find("li").eq(current).fadeOut(500);
+
+                current++;
+
+                if(current >= $(".slide_item").eq(clicked2).find("li").length){
+                    current = 0;
+                }
+
+                $(".slide_item").eq(clicked2).find("li").eq(current).fadeIn(500);
+            
+            },2000);
+            
+
+            $(".roombtn li").click(function(){
+                current = 0;
+                var tg = $(this).index();
+                $(".roombtn li").removeClass("on");
+                $(this).addClass("on");
+                
+                if(tg == clicked2){
+                    return;
+                }
+
+                $(".slide_item").eq(clicked2).animate({right: "-100%"},500,function(){
+                    $(".slide_item").eq(tg).animate({right: 0}, 500);
+                });
+                
+                clicked2 = tg;
+            });
+            
+            
+            
+            
+        });
+    </script>
+    <style>
+        @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
+        #container{
+            margin-bottom: 50px;
+        }
+        #pcImg{
+            display: none;
+        }
+        .subTop{
+            background-image: url("../img/1/subTop_acm.jpg");
+        }
+        .acmtitle{
+            width: 100%;
+            position: relative;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: auto auto;
+            justify-content: center;
+            grid-gap: 10px;
+        }
+        .acmtitle h3{
+            font-family: 'YetHangul';
+            font-weight: lighter;
+            font-size: 1.2rem;
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+        .acmtitle p{
+            font-family: 'YetHangul';
+            font-size: 0.8rem;
+            line-height: 20px;
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        .acmtitle img{
+            width: 20px;
+            height: 20px;
+            align-self: start;
+        }
+        .contents1, .acmtitle{
+            background-color: #e8e3dc;
+            position: relative;
+        }
+        .acminfo h2{
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.4rem;
+        }
+        .acminfo p{
+            font-family: 'YetHangul';
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .acminfo dl{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            grid-template-columns: auto auto;
+            justify-content: center;
+            grid-row-gap: 3px;
+            grid-column-gap: 10%;
+            padding: 20px 0;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
+        .acminfo dt{
+            font-weight: bold;
+        }
+        .acminfo dd{
+            font-family: 'YetHangul';
+        }
+        .roomcontent{
+            position: relative;
+            width: 95%;
+            margin-left: 5%;
+            /*overflow: hidden;*/
+        }
+        .roomcontent .roombtn{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .roombtn li{
+            font-family: 'YetHangul';
+            padding-right: 20px;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+        .roombtn li:after{
+            display: block;
+            content: '';
+            width: 0;
+            height: 2px;
+            background-color: #1e4a6e; /*#5d360e;*/
+            transition: .3s;
+        }
+        .roombtn li.on:after, .roombtn li:hover:after{
+            width: 100%;
+        }
+        
+        .roomcontent .slides:before {
+            content: "";
+            display: block;
+            padding-top: 70%; 
+        }
+        .roomcontent .slides{
+            position: relative;
+            overflow: hidden;
+        }
+        .roomcontent .slides .slide_item{
+            position: absolute;
+            top: 0; right: -100%;
+            width: 100%;
+        }
+        .roomcontent .slides .slide_item li{
+            display: none;
+            position: absolute;
+            top: 0; left: 0;
+        }
+        .slides img{
+            width: 100%;
+        }
+        .contents2{
+            background-color: #1e4a6e;
+            color: white;
+            font-family: 'YetHangul';
+            padding: 20px 0;
+            
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+            grid-template-columns: auto;
+            justify-content: center;
+        }
+        .contents2 ul{
+            padding: 20px 0;
+        }
+        .contents2 ul:first-child{
+            line-height: 40px;
+            font-size: 1.2rem;
+            
+        }
+        .contents2 ul:first-child i{
+            width: 25px;
+            vertical-align: middle;
+        }
+        .contents2 ul:first-child span{
+            text-indent: 20px;
+            display: inline-block;
+        }
+        .service{
+            width: 80%;
+            max-width: 300px;
+            word-break: keep-all;
+        }
+        .service h3{
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin-bottom: 10px;
+        }
+        .service li{
+            padding-bottom: 5px;
+        }
+        
+        /* Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) {
+            .contents1{
+                padding-top: 50px;
+            }
+            .acmtitle h3{
+                font-size: 1.4rem;
+            }
+            .acmtitle p{
+                font-size: 1rem;
+                line-height: 25px;
+            }
+            .acminfo h2{
+                font-size: 1.7rem;
+            }
+            .acminfo p{
+                font-size: 1.1rem;
+            }
+            .acminfo dl{
+                font-size: 1.1rem;
+                grid-row-gap: 10px;
+                grid-column-gap: 20%;
+                padding: 25px 0;
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) {
+            .contents1{
+                display: flex;
+                padding-top: 50px;
+                padding-bottom: 30px;
+                justify-content: flex-end;
+            }
+            .roomcontent{
+                width: 40%;
+                margin-left: 0;
+            }
+            .acmtitle{
+                grid-gap: 15px;
+            }
+            .acmtitle img{
+                align-self: center;
+                width: 25px;
+                height: 25px;
+            }
+            .acminfo{
+                margin-top: 0;
+                width: 50%;
+                padding: 0 5%;
+            }
+            .acminfo h2{
+                padding-top: 0;
+            }
+            .acminfo p{
+                margin-top: 10px;
+            }
+            .acminfo dl{
+                grid-row-gap: 15px;
+            }
+            .contents2{
+                grid-template-rows: auto auto;
+                grid-template-columns: 1fr 1fr;
+            }
+            .contents2 ul{
+                width: auto;
+                max-width: none;
+                margin-left: 20%;
+            }
+            
+        }
+
+        /* Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) {
+            .acmtitle h3{
+                font-size: 1.5rem;
+            }
+            .acmtitle p{
+                line-height: 25px;
+            }
+            .acminfo h2{
+                font-size: 1.8rem;
+            }
+            .acminfo dl{
+                font-size: 1.2rem;
+                grid-row-gap: 20px;
+                padding: 30px 0;
+            }
+        }
+
+        /* Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+            #pcImg{
+                display: block;
+                width: 100%;
+                height: 550px;
+                filter: brightness(70%);
+            }
+            .acmtitle{
+                grid-gap: 20px;
+                padding: 50px 0;
+            }
+            .acmtitle h3{
+                font-size: 1.7rem;
+            }
+            .acmtitle p{
+                font-size: 1.1rem; 
+                line-height: 30px;
+            }
+            .acmtitle img{
+                align-self: start;
+                width: 30px; height: 30px;
+            }
+            .acminfo h2{
+                font-size: 2rem;
+            }
+            .acminfo p{
+                font-size: 1.2rem;
+            }
+            .acminfo dl{
+                grid-template-rows: auto auto auto auto;
+                grid-template-columns: auto;
+                text-align: center;
+            }
+            .contents2{
+                grid-template-rows: auto;
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+                grid-column-gap: 10px;
+            }
+            .contents2 ul{
+                margin-left: 0;
+            }
+            .contents2 ul:first-child{
+                justify-self: center;
+            }
+            .service li{
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div id="wrap">
+        <div id="container">
+            <div class="subTop">
+                <div class="subTop_bg">
+                    <img id="pcImg" src="../img/1/subTop_acm.jpg" alt="">
+                    <nav class="subTop_title">
+                        <div id = "title_line"></div>
+                        <h1>ACCOMMODATION</h1>
+                        <h3>객실안내</h3>
+                        <ul>
+                            <li><a href="deluxe.html">ACCOMMODATION</a></li>
+                            <li><a href="suite.html">Suite</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="acmtitle">
+                <img src="../img/icon/acm.png" alt="">
+                <h3>서울에서의 하루를 마치고 휴식을 즐기기에 적합한 공간입니다.</h3>
+                <p>42인치 LCD TV로 영화를 감상하며 휴식을 취하고, 북적임과 활기가 넘치는 서울 도심 전망을 감상해 보십시오.<br>
+                무료 WiFi, 잡지, 신문 및 생수도 준비되어 있습니다.</p>
+            </div>
+            
+            <div class="contents1">
+                <div class="acminfo">
+                    <h2>SUITE ROOM</h2>
+                    <p>럭셔리한 킹 사이즈 침대에서 여유를 누리세요</p>
+                    <dl>
+                        <dt>Capacity</dt>
+                        <dd>2인 (최대 3인)</dd>
+                        <dt>Rooms</dt>
+                        <dd>침실 1, 욕실 1, 화장실 1</dd>
+                        <dt>Size</dt>
+                        <dd>34㎡ (10.3평)</dd>
+                    </dl>
+                </div>
+                <div class="roomcontent">
+                    <ul class="roombtn">
+                        <li class="on">킹 이그제큐티브 스위트</li>
+                        <li>킹 프리미어 스위트</li>
+                        <li>파크힐 듀플렉스 스위트</li>
+                        <li>비스타 듀플렉스 투 베드 스위트</li>
+                        <li>남대문 듀플렉스 스위트</li>
+                    </ul>
+                    <div class="slides">
+                        <ul class="slide_item">
+                            <li><img src="../img/2/suite1.jpg" alt=""></li>
+                            <li><img src="../img/2/suite2.jpg"></li>
+                        </ul>
+                        <ul class="slide_item">
+                            <li><img src="../img/2/suite3.jpg" alt=""></li>
+                            <li><img src="http://placehold.it/740X457" alt=""></li>
+                        </ul>
+                        <ul class="slide_item">
+                            <li><img src="../img/2/suite4.jpg" alt=""></li>
+                            <li><img src="../img/2/suite5.jpg" alt=""></li>
+                        </ul>
+                        <ul class="slide_item">
+                            <li><img src="../img/2/suite6.jpg" alt=""></li>
+                            <li><img src="../img/2/suite7.jpg" alt=""></li>
+                        </ul>
+                        <ul class="slide_item">
+                            <li><img src="../img/2/suite8.jpg" alt=""></li>
+                            <li><img src="../img/2/suite9.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="contents2">
+                <ul>
+                    <li>
+                        <i class="fas fa-street-view"></i>
+                        <span>16시 체크인 / 12시 체크아웃</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-smoking-ban"></i>
+                        <span>전실 금연</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-dog"></i>
+                        <span>봉사견 가능</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-wifi"></i>
+                        <span>전실 무료 Wi-Fi</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-swimmer"></i>
+                        <span>실내 풀</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-parking"></i>
+                        <span>유료 주차장 있음</span>
+                    </li>
+                </ul>
+                
+                <ul class= "service">
+                    <li><h3>편의 시설</h3></li>
+                    <li>에어컨</li>
+                    <li>알람 라디오</li>
+                    <li>욕실 가운</li>
+                    <li>커넥팅 룸</li>
+                    <li>설정이 편리한 알람시계 겸용 라디오</li>
+                    <li>욕실 내 야간 조명</li>
+                    <li>금연</li>
+                    <li>유료 TV 채널</li>
+                    <li>TV - 프리미엄 HBO, CNN, ESPN</li>
+                    <li>TV - 기본 네트워크</li>
+                    <li>온도 조절 장치</li>
+                    <li>조절식 램프가 있는 업무용 책상</li>
+                </ul>
+                
+                <ul class= "service">
+                    <li><h3>편의 서비스</h3></li>
+                    <li>24시간 객실 관리</li>
+                    <li>욕실 어메니티 제공</li>
+                    <li>커피 메이커</li>
+                    <li>대형 냉장고</li>
+                    <li>헤어 드라이어</li>
+                    <li>핸드 헬드형 샤워기</li>
+                    <li>고속 인터넷 액세스</li>
+                    <li>객실 내 인터넷 액세스</li>
+                    <li>미니바</li>
+                    <li>무료 신문(USA Today) - 주말 제외</li>
+                    <li>
+                        <dl>
+                            <dt>전화기 - </dt>
+                            <dd>자동 알람, 이중 회선, 전화기 2대,</dd>
+                            <dd>음성 사서함, 욕실용, 데이터 포트 포함, 스피커 폰</dd>
+                        </dl>
+                    </li>
+                    <li>화상 메시지 송수신 가능</li>
+                    <li>환영 선물</li>
+                </ul>
+                
+                <ul class= "service">
+                    <li><h3>보안 시설</h3></li>
+                    <li>출입문 자동 잠금</li>
+                    <li>디지털 도어록</li>
+                    <li>금고</li>
+                    <li>화상 방지용 샤워/욕조</li>
+                    <li>이중 잠금장치</li>
+                    <li>잠금쇠 방식</li>
+                    <li>광각 도어 뷰어</li>
+                </ul>
+            </div>
+            
+        </div> <!-- // container -->
+        <footer></footer>
+    </div>
+</body>
+</html>

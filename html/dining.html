@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/sub.css">
+    <script src = "../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("header").load("header_sub.html");
+            $("footer").load("footer.html");
+            
+            $(window).scroll(function(e){
+                e.preventDefault();
+                var i = 60;  
+                var st = $(window).scrollTop()/10+i;
+                $(".subTop_title").css({top: st+"%"});
+            });
+            
+        });
+    </script>
+    <style>
+        @font-face{font-family:'YetHangul'; src: url('../font/NanumBarunGothic-YetHangul.ttf');}
+        #container{
+            margin-bottom: 50px;
+        }
+        #pcImg{
+            display: none;
+        }
+        .subTop{
+            background-image: url("../img/1/subTop_dining.jpg");
+        }
+        .subTop_title ul li:nth-child(2) a:before,
+        .subTop_title ul li:nth-child(3) a:before,
+        .subTop_title ul li:nth-child(4) a:before,
+        .subTop_title ul li:nth-child(5) a:before,
+        .subTop_title ul li:nth-child(6) a:before,
+        .subTop_title ul li:nth-child(7) a:before{
+            content: "|";
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .contents{
+            position: relative;
+        }
+        
+        /* Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) {
+
+        }
+
+        /* Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) {
+
+            
+        }
+
+        /* Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) {
+
+        }
+
+        /* Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+            #pcImg{
+                display: block;
+                width: 100%;
+                height: 550px;
+                filter: brightness(70%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div id="wrap">
+        <div id="container">
+            <div class="subTop">
+                <div class="subTop_bg">
+                    <img id="pcImg" src="../img/1/subTop_dining.jpg" alt="">
+                    <nav class="subTop_title">
+                        <div id = "title_line"></div>
+                        <h1>DINING</h1>
+                        <h3>다이닝</h3>
+                        <ul>
+                            <li><a href="deluxe.html">카페 395</a></li>
+                            <li><a href="deluxe.html">실란트로 델리</a></li>
+                            <li><a href="deluxe.html">일폰테</a></li>
+                            <li><a href="deluxe.html">겐지</a></li>
+                            <li><a href="deluxe.html">오크룸</a></li>
+                            <li><a href="deluxe.html">타이판</a></li>
+                            <li><a href="deluxe.html">시즌즈</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="contents">
+                <section>
+                    <h1>카페 395</h1>
+                    <ul>
+                        <li><img src="../img/3/cafe395_1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>그날 최상의 신선도를 자랑하거나 제철인 식재료를 구매하여 섹션별로 배치된 전문요리사들이 오픈된 조리공간에서 요리를 선보입니다.</h3>
+                        <p>예약 및 문의 : 02-317-3062</p>
+                        
+                        <h4>이용안내</h4>
+                        <ul>
+                            <li>
+                                운영시간: 06:00 - 22:00
+                            </li>
+                            <li>
+                                위치: 메인 로비 (1층)
+                            </li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Time</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr>
+                                <td>아침 뷔페</td>
+                                <td>06:00 - 10:30</td>
+                                <td>성인 4만9천원 / 어린이 2만9400원</td>
+                            </tr>
+                            <tr>
+                                <td>점심 뷔페</td>
+                                <td>토&일 12:00 - 14:30</td>
+                                <td>성인 10만 5천원 / 어린이 6만 3천원</td>
+                            </tr>
+                            <tr>
+                                <td>저녁 뷔페</td>
+                                <td>금, 토&일 18:00 - 21:30</td>
+                                <td>성인 11만 5천원 / 어린이 6만 9천원</td>
+                            </tr>
+                            <tfoot>
+                               <tr>
+                                   <td colspan = "3">▶ 어린이 가격은 48개월부터 초등학교 6학년까지 적용 (48개월 미만은 무료)</td>
+                               </tr>
+                            </tfoot>
+                        </table>
+                        <p>
+                            카페395는 밀레니엄 힐튼 서울의 플래그십 레스토랑으로 다양한 일품요리와 뷔페요리를 동시에 제공하고 있습니다.
+
+                            뷔페요리의 큰 틀을 이루는 각각의 섹션 - 샐러드, 해산물, 한식, 중식, 이태리식, 프랑스식, 그릴, 디저트를 대표하는 요리들이 항상 준비되며 또한, 그날 최상의 신선도를 자랑하거나 제철인 식재료를 구매하여 섹션별로 배치된 전문요리사들이 오픈된 조리공간에서 요리를 선보입니다.
+
+                            모든 음식을 고객이 보는 앞에서 직접 조리하는 방식을 취함으로 일품요리와 동일한 수준의 뷔페요리를 선보이게 됩니다.
+                        </p>
+                        <p>※ 2020년 5월 1일부터 주말 뷔페 및 특정 메뉴 이용 가능합니다. 이그제큐티브 라운지 & 룸서비스 메뉴 또한 카페 395에서 이용하실 수 있습니다. 고객님들의 깊은 양해를 부탁드립니다.</p>
+                        
+                    </div>
+                </section>
+                <section>
+                    <h1>실란트로 델리</h1>
+                    <ul>
+                        <li><img src="../img/3/cilantrodeli1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>신선하고 맛있는 케이크, 패스트리, 빵, 햄과 치즈를 즐기실 수 있으며, 다양한 메뉴를 테이크아웃 메뉴로도 선택하실 수 있습니다.</h3>
+                        <p>예약 및 문의 : 02-317-3064</p>
+                        
+                        <h4>이용안내</h4>
+                        <ul>
+                            <li>
+                                10:00 – 19:00 (※ 2020년 6월 1일부터 월-목 12:00 - 20:00, 금-일 10:00 - 20:00 변경 예정)
+                            </li>
+                            <li>
+                                위치: 메인 로비 (1층)
+                            </li>
+                        </ul>
+                        <p>
+                            특별한 날을 위한 스페셜 케이크가 필요하실 때는 최소 3일 전에 전화를 주시면 주문 제작해 드립니다.
+                            해피 아워(Happy Hour / 20:00 - 21:00)에는 모든 빵 종류를 할인된 가격으로 판매하고 있어 이 시간대를 이용하면 더욱 저렴한 가격으로 빵을 구입할 수 있습니다. (케이크와 일부 품목은 제외, 12월 24 & 25일은 미적용)
+                        </p>
+                        <p> 칠면조 구이 테이크아웃 메뉴 주문 가능</p>
+                    </div>
+                </section>
+                <section>
+                    <h1>일폰테</h1>
+                    <ul>
+                        <li><img src="../img/3/ilfonte1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>정통 이태리 요리를 선보이고 있는 일폰테에서는 전원풍의 편안한 분위기를 만끽하면서 이태리 각 지역의 풍미를 맛보실 수 있습니다.</h3>
+                        <p>예약 및 문의 : 02-317-3270</p>
+                        
+                        <h4>이용안내</h4>
+                        <ul>
+                            <li>
+                                점심   11:30 - 14:30 (라스트 오더 14:20)
+                                저녁   18:00 - 22:00 (라스트 오더 21:40)
+                            </li>
+                            <li>
+                                위치: LL층(지하 1층)
+                            </li>
+                        </ul>
+                        <p>
+                            특국내 호텔업계 최초의 이태리 요리 전문 식당인 일폰테는 직접 뽑아낸 신선한 이태리 국수를 비롯하여 이태리식 생선 요리와 쇠고기 안심 스테이크 등 이태리 각 지역의 풍미를 느낄 수 있습니다.
+                            일폰테는 주방이 공개되어 있어 조리하는 과정을 직접 지켜 볼 수 있을 뿐만 아니라 고객이 원하는 취향의 요리를 조리장에게 직접 요청할 수도 있습니다.
+                            일폰테에는 10명까지 자리할 수 있는 소규모 별실과 총 50명까지 행사를 치를 수 있는 리알토(Rialto) 별실이 별도로 마련되어 있습니다.
+                        </p>
+                        <p> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</p>
+                    </div>
+                </section>
+                <section>
+                    <h1>일폰테</h1>
+                    <ul>
+                        <li><img src="../img/3/ilfonte1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>사계절의 변화가 오롯이 느껴지는 겐지 정원 감상과 함께 오마카세 다이닝을 즐기실 수 있습니다.</h3>
+                        <p>예약 및 문의 : 02-317-3240</p>
+                        
+                        <h4>이용안내</h4>
+                        <ul>
+                            <li>
+                                점심   11:30 - 14:30 (라스트 오더 14:20)
+                                저녁   18:00 - 22:00 (라스트 오더 21:40)
+                            </li>
+                            <li>
+                                위치: LL층(지하 1층)
+                            </li>
+                        </ul>
+                        <p>
+                            ‘겐지(源氏)’는 일본 헤이안 시대 최고의 고전소설로 꼽히는 ‘겐지모노가타리’의 주인공 ‘히카루 겐지’에서 유래되어 오늘날 ‘최고의 음식과 술 그리고 미식가’를 상징하는 단어로 자리매김되었다고 합니다.
+                            겐지는 호텔업계 최초로 ‘덴푸라 오마카세 전용 카운터'와 '스시 오마카세 카운터'를 각각 운영하고 있습니다. 사계절의 변화가 오롯이 느껴지는 겐지 정원을 감상하시며 프리미엄급 오마카세 다이닝을 즐기실 수 있습니다. 또한 저녁에는 즉석에서 요리해 주는 데판야끼 메뉴도 이용 가능합니다.
+                        </p>
+                        <p> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</p>
+                    </div>
+                </section>
+                <section>
+                    <h1>오크룸</h1>
+                    <ul>
+                        <li><img src="../img/3/oakroom1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>벽난로에서 통나무 장작이 타오르는 바 오크룸에서는 라이브 음악과 함께 가벼운 스낵류와 음료를 즐기며 펍 레스토랑의 진수를 만끽 하실 수 있습니다.</h3>
+                        <p>예약 및 문의 : 02-317-3234</p>
+                        
+                        <h4>이용안내</h4>
+                        <ul>
+                            <li>
+                                월 - 목  오전 11시 30분 - 오후 2시 30분
+                                월 - 금  오후 5시 30분 - 오후 8시 30분
+                            </li>
+                            <li>
+                                위치: LL층(지하 1층)
+                            </li>
+                        </ul>
+                        <p>
+                            오크룸에서는 철저한 온도 관리로 시원한 맛이 일품인 생맥주에서부터 세계 각국의 다양한 맥주, 모든 종류의 칵테일을 선보이고 있습니다.
+                            안주를 주문하지 않아도 생맥주나 칵테일을 주문하면 서빙되는 5-6가지의 고급 넛츠가 무료로 제공되어 각종 주류를 부담없는 가격으로 간단하게 즐길 수 있습니다.
+                            바쁜 일상에서 탈피하여 감미로운 라이브 공연과 간단한 음료를 함께 즐길 수 있어 퇴근길의 직장인, 연인들이 부담없이 찾기에 좋은 장소입니다.
+                            위스키 마니아를 위해 매월 특선 위스키 행사를 하고 있습니다. 해당 위스키 할인 혜택과 무료 안주를 제공하고 있으며 추첨을 통하여 위스키 한 병씩을 드립니다.
+
+                        </p>
+                        <p> ※ 2020년 5월 1일부터 평일 바비큐 뷔페 메뉴만 이용 가능합니다. 하단의 '지금 예약하기' 버튼을 통해 예약 시, 10% 할인이 적용됩니다.</p>
+                    </div>
+                </section>
+                <section>
+                    <h1>타이판</h1>
+                    <ul>
+                        <li><img src="../img/3/typan1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>세련되고 현대적 감각이 깃든 타이판은 별실을 갖추고 있으며, 계절별 신선한 요리를 비롯해 다양한 중국요리의 즐거움을 선사합니다.</h3>
+                        <p>예약 및 문의 : 02-317-3237</p>
+                        
+                        <h4>이용안내</h4>
+                        <ul>
+                            <li>
+                                점심   11:30 - 14:30 (라스트 오더 14:20)
+                                저녁   18:00 - 22:00 (라스트 오더 21:40)
+                            </li>
+                            <li>
+                                위치: LL층(지하 1층)
+                            </li>
+                        </ul>
+                        <p>
+                            타이판에서 선보이는 요리는 생선 찜, 바닷가재 찜 등 주로 해산물을 중심으로 한 광동요리로 맛이 깔끔하고 담백하면서도 부드러운 것이 특징입니다. 레몬소스, 굴소스, 화이트소스 등 요리의 맛을 좌우하는 소스도 다양하게 선보이고 있습니다. 계절별로 마련되는 특선 요리도 여름에는 중국식 냉면, 가을에는 자연송이 요리, 겨울에는 전골요리 등 다양하게 준비하고 있습니다.
+
+                            또한, 화교 출신인 중식 요리의 대가 '조내성' 셰프의 고객들의 선호도와 최신 트렌드에 맞춰 담백하면서도 깊이 있는 중식 요리를 만나실 수 있습니다.
+
+                            인테리어는 모던 차이니스 스타일로 우아한 서구식 실내장식과 단순하면서도 세련된 분위기의 소품들과 가구들로 타이판 만의 멋스러움을 한층 더해줍니다.
+
+                        </p>
+                        <p> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</p>
+                    </div>
+                </section>
+                <section>
+                    <h1>시즌즈</h1>
+                    <ul>
+                        <li><img src="../img/3/seasons1.jpg" alt=""></li>
+                    </ul>
+                    <div class="textBox">
+                        <h3>구어메서클, 와인&치즈 클럽, 기업행사, 가족연회, 프라이빗 파티 등을 전문으로 하는 ‘소셜 베뉴(Social Venue)’입니다.</h3>
+                        <p>예약 및 문의 : (02) 317-3200 / seoul@hilton.com</p>
+                        
+                        <h4>이용안내</h4>
+                        
+                        <p>
+                            고객 여러분께,
+
+                            지난 30여 년간 저희 프렌치 식당 ‘시즌즈’를 이용해 주신 고객 여러분께 진심으로 감사드립니다.
+
+                            아뢰올 말씀은, 시즌즈가 구어메서클, 와인&치즈 클럽, 기업행사, 가족연회, 프라이빗 파티 등을 전문으로 하는 ‘소셜 베뉴(Social Venue)’로 그 성격을 달리합니다.
+
+                            한편, 시즌즈의 플래그십 메뉴는 이태리 식당 ‘일폰테(Il Ponte)’에서 계속해서 즐기실 수 있사오니 고객 여러분의 변함없는 성원 바랍니다.
+
+                            특별한 이벤트를 위해 시즌즈 예약이 필요하시면 연회 판촉부에 문의 바랍니다.
+                        </p>
+                    </div>
+                </section>
+            </div>
+            
+        </div> <!-- // container -->
+        <footer></footer>
+    </div>
+</body>
+</html>
