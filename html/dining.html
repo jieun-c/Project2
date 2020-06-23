@@ -48,6 +48,63 @@
         .contents{
             position: relative;
         }
+        section h1{
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 100;
+            font-family: 'YetHangul';
+            padding: 30px 0 20px;
+        }
+        #slides{
+            position: relative;
+            width: 100%;
+            max-width: 740px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        #slides:before {
+            content: "";
+            display: block;
+            padding-top: 50%;
+        }
+        #slides li{
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #slides img{
+            width: 100%;
+            height: 100%;
+            padding: 1%;
+            box-sizing: border-box;
+        }
+        .slideBtn{
+            display: flex;
+            justify-content: center;
+        }
+        .slideBtn li{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 5px;
+            background: #d1d1d1;
+            cursor: pointer;
+        }
+        .slideBtn li.on{
+            background: #3b3b3b;
+        }
+        section h3{
+            font-size: 1rem;
+            font-family: 'YetHangul';
+            font-weight: 100;
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+        section .textBox{
+            position: relative;
+        }
         
         /* Small devices (landscape phones, 576px and up)*/
         @media (min-width: 576px) {
@@ -102,10 +159,25 @@
             
             <div class="contents">
                 <section>
+                    <div class="slideBox">
                     <h1>카페 395</h1>
-                    <ul>
-                        <li><img src="../img/3/cafe395_1.jpg" alt=""></li>
-                    </ul>
+                        <ul id ="slides">
+                            <li><img src="../img/3/cafe395_1.jpg" alt=""></li>
+                            <li><img src="../img/3/cafe395_2.jpg" alt=""></li>
+                            <li><img src="../img/3/cafe395_3.jpg" alt=""></li>
+                            <li><img src="../img/3/cafe395_4.jpg" alt=""></li>
+                            <li><img src="../img/3/cafe395_5.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    
                     <div class="textBox">
                         <h3>그날 최상의 신선도를 자랑하거나 제철인 식재료를 구매하여 섹션별로 배치된 전문요리사들이 오픈된 조리공간에서 요리를 선보입니다.</h3>
                         <p>예약 및 문의 : 02-317-3062</p>
@@ -157,7 +229,7 @@
                         
                     </div>
                 </section>
-                <section>
+        <!--        <section>
                     <h1>실란트로 델리</h1>
                     <ul>
                         <li><img src="../img/3/cilantrodeli1.jpg" alt=""></li>
@@ -181,8 +253,8 @@
                         </p>
                         <p> 칠면조 구이 테이크아웃 메뉴 주문 가능</p>
                     </div>
-                </section>
-                <section>
+                </section>-->
+    <!--            <section>
                     <h1>일폰테</h1>
                     <ul>
                         <li><img src="../img/3/ilfonte1.jpg" alt=""></li>
@@ -317,7 +389,7 @@
                             특별한 이벤트를 위해 시즌즈 예약이 필요하시면 연회 판촉부에 문의 바랍니다.
                         </p>
                     </div>
-                </section>
+                </section>-->
             </div>
             
         </div> <!-- // container -->
