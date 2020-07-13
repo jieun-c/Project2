@@ -15,20 +15,20 @@ footer{
     color: black;
 }
 #f1, #f2{
-    text-align: center;
     line-height: 20px;
 }
 #footerBox>li:nth-child(1), #footerBox>li:nth-child(2){
     font-size: 0.8rem;
 }
-#f1 ul, #f2 ul{
-    width: 100%;
-    
+#f1 ul{
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    width: 80%; margin: 0 auto;
 }
-#f1 ul li, #f2 ul li{
-    width: 80%;
-    margin: 0 auto;
+#f2 ul{
+    width: 80%; margin: 0 auto;
 }
+
 
 #f3{
     margin-top: 10px;
@@ -85,16 +85,19 @@ footer > #copy{
         grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     }
     #f1, #f2{
-        text-align: left;
         line-height: normal;
+    }
+    #f1 ul, #f2 ul{
+        display: block;
+        width: auto;
     }
 }
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
     #footerBox{
-        display: grid;
-        grid-template: repeat(1, 1fr) / repeat(4, 1fr);
+        display: flex;
+        justify-content: space-around;
     }
 }
 

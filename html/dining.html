@@ -22,6 +22,53 @@
                 $(".subTop_title").css({top: st+"%"});
             });
             
+            
+            var section = $("section");
+            var subTitle = $(".subTitle li");
+            var prev = 0;
+            var slides = $(".slides li");
+            var slideBtn = $(".slideBtn li");
+            
+            //소메뉴
+            section.css("display","none");
+            section.eq(0).css("display","block");
+            
+            subTitle.click(function(){
+                var tg = $(this).index();
+                
+                if(prev == tg){
+                    return;
+                }
+                
+                section.stop().fadeOut();
+                section.eq(tg).fadeIn();
+                
+                slideBtn.removeClass("on");
+                $(".slideBtn li:first-of-type").addClass("on");
+                
+                slides.css("display","none");
+                $(".slides li:first-of-type").css("display","block");
+                
+                prev = tg;
+            });
+            
+            
+            
+            slides.css("display","none");
+            slides.eq(0).css("display","block");
+            
+            slideBtn.click(function(){
+                var tg = slideBtn.index(this);
+                
+                slideBtn.removeClass("on");
+                slideBtn.eq(tg).addClass("on");
+                
+                console.log(tg);
+                
+                slides.stop().fadeOut();
+                slides.eq(tg).stop().fadeIn();
+            });
+            
         });
     </script>
     <style>
@@ -47,33 +94,36 @@
         }
         .contents{
             position: relative;
+            width: 90%; max-width: 1200px;
+            margin: 0 auto;
+            transition: .5s;
         }
-        section h1{
+        section > h1{
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 100;
             font-family: 'YetHangul';
-            padding: 30px 0 20px;
+            padding: 70px 0 50px;
         }
-        #slides{
+        .slides{
             position: relative;
             width: 100%;
             max-width: 740px;
             height: 100%;
             margin: 0 auto;
         }
-        #slides:before {
+        .slides:before {
             content: "";
             display: block;
-            padding-top: 50%;
+            padding-top: 80%;
         }
-        #slides li{
+        .slides li{
             position: absolute;
             top: 0; left: 0;
             width: 100%;
             height: 100%;
         }
-        #slides img{
+        .slides img{
             width: 100%;
             height: 100%;
             padding: 1%;
@@ -82,44 +132,159 @@
         .slideBtn{
             display: flex;
             justify-content: center;
+            padding-top: 10px;
         }
         .slideBtn li{
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
+            width: 25px;
+            height: 3px;
             margin: 5px;
-            background: #d1d1d1;
+            border: 1px solid #3b3b3b;
             cursor: pointer;
         }
         .slideBtn li.on{
             background: #3b3b3b;
+            transform: scaleX(3);
+            margin: 5px 30px;
         }
-        section h3{
-            font-size: 1rem;
+        section{
+            padding-bottom: 50px;
+        }
+        section > .textBox > p:first-child{
             font-family: 'YetHangul';
-            font-weight: 100;
-            text-align: center;
-            width: 80%;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 740px;
+            margin: 20px auto;
+            font-size: 0.9rem;
+            line-height: 30px;
         }
-        section .textBox{
+        section > .textBox{
             position: relative;
         }
         
+        section > .textBox > h3{
+            font-size: 1rem;
+            padding-top: 10px;
+            font-weight: normal;
+        }
+        .textBox > h4{
+            padding-top: 70px;
+            padding-bottom: 5px;
+            font-size: 1rem;
+            font-weight: normal;
+            border-bottom: 2px solid black;
+        } 
+        .textBox > ul{
+            padding-top: 15px;
+        }
+        .textBox > ul > li{
+            padding-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        #tableBox{
+            margin: 30px 0;
+        }
+        #tableBox > ul{
+            display: table;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 5px 0;
+            word-break: keep-all;
+        }
+        #tableBox > ul:first-child li:nth-child(2),
+        #tableBox > ul:first-child li:nth-child(3){
+            border-bottom: 2px solid black;
+        }
+        #tableBox > ul > li{
+            display: table-cell;
+        }
+        #tableBox > ul > li:first-child{
+            width: 20%;
+        }
+        #tableBox > ul > li:nth-child(2){
+            width: 35%;
+        }
+        #tableBox > ul > li:nth-child(3){
+            width: 45%;
+        }
+        #tableBox > ul > li:last-child{
+            width: 100%;
+        }
+        #tableBox > ul:nth-child(2), #tableBox > ul:nth-child(3) ,#tableBox > ul:nth-child(4), #tableBox > ul:nth-child(5){
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        #tableBox > ul:last-child > li{
+            padding-top: 10px;
+            text-align: center;
+            
+        }
+        
+        .textBox > p:last-of-type{
+            font-family: 'YetHangul';
+            width: 100%;
+            margin-top: 50px;
+            line-height: 30px;
+            font-size: 1rem;
+            word-break: keep-all;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .textBox > strong{
+            padding-top: 20px;
+            font-size: 0.8rem;
+            line-height: 20px;
+            display: block;
+        }
         /* Small devices (landscape phones, 576px and up)*/
         @media (min-width: 576px) {
-
+            .slides:before{
+                padding-top: 70%;
+            }
+            .textBox > p:last-of-type{
+                display: block;
+            }
+            
+            section > h1{font-size: 1.6rem;}
+            section > .textBox > p:first-child{font-size: 1rem;}
+            section > .textBox > h3{font-size: 1.1rem;}
+            section > .textBox > h4{font-size: 1.1rem;}
+            section > .textBox > ul > li{padding-bottom: 10px;}
+            #tableBox > ul:nth-child(2), #tableBox > ul:nth-child(3) ,#tableBox > ul:nth-child(4), #tableBox > ul:nth-child(5){font-size: 0.9rem;}
         }
 
         /* Medium devices (tablets, 768px and up)*/
         @media (min-width: 768px) {
-
-            
+            .slides:before{
+                padding-top: 60%;
+            }
+            section > .textBox > ul > li{font-size: 0.95rem;}
+            #tableBox > ul:first-child{font-size: 1rem;}
+            #tableBox > ul:last-child > li{padding-top: 20px; padding-left: 20%; text-align: left;}
+            .textBox > p:last-of-type{font-size: 1rem;}
+            .textBox > strong{
+                padding-top: 40px;
+            }
         }
 
         /* Large devices (desktops, 992px and up)*/
         @media (min-width: 992px) {
-
+            .contents{
+                width: 80%;
+            }
+            .slides:before{
+                padding-top: 50%;
+            }
+            #tableBox > ul{
+                border: 0;
+            }
+            #tableBox > ul:last-child > li{
+                padding-top: 30px;
+            }
+            .textBox > p:last-of-type{font-size: 1.05rem; line-height: 40px; margin-top: 80px;}
+            .textBox > strong{
+                font-size: 0.95rem;
+            }
         }
 
         /* Extra large devices (large desktops, 1200px and up)*/
@@ -129,6 +294,13 @@
                 width: 100%;
                 height: 550px;
                 filter: brightness(70%);
+            }
+            .contents{
+                width: 60%;
+            }
+            #tableBox > ul:last-child > li{
+                padding-left: 55%;
+                text-align: center;
             }
         }
     </style>
@@ -144,14 +316,14 @@
                         <div id = "title_line"></div>
                         <h1>DINING</h1>
                         <h3>다이닝</h3>
-                        <ul>
-                            <li><a href="deluxe.html">카페 395</a></li>
-                            <li><a href="deluxe.html">실란트로 델리</a></li>
-                            <li><a href="deluxe.html">일폰테</a></li>
-                            <li><a href="deluxe.html">겐지</a></li>
-                            <li><a href="deluxe.html">오크룸</a></li>
-                            <li><a href="deluxe.html">타이판</a></li>
-                            <li><a href="deluxe.html">시즌즈</a></li>
+                        <ul class="subTitle">
+                            <li><a href="Javascript:;">카페 395</a></li>
+                            <li><a href="Javascript:;">실란트로 델리</a></li>
+                            <li><a href="Javascript:;">일폰테</a></li>
+                            <li><a href="Javascript:;">겐지</a></li>
+                            <li><a href="Javascript:;">오크룸</a></li>
+                            <li><a href="Javascript:;">타이판</a></li>
+                            <li><a href="Javascript:;">시즌즈</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -159,9 +331,9 @@
             
             <div class="contents">
                 <section>
-                    <div class="slideBox">
                     <h1>카페 395</h1>
-                        <ul id ="slides">
+                    <div class="slideBox">
+                        <ul class ="slides">
                             <li><img src="../img/3/cafe395_1.jpg" alt=""></li>
                             <li><img src="../img/3/cafe395_2.jpg" alt=""></li>
                             <li><img src="../img/3/cafe395_3.jpg" alt=""></li>
@@ -179,8 +351,8 @@
                     </div>
                     
                     <div class="textBox">
-                        <h3>그날 최상의 신선도를 자랑하거나 제철인 식재료를 구매하여 섹션별로 배치된 전문요리사들이 오픈된 조리공간에서 요리를 선보입니다.</h3>
-                        <p>예약 및 문의 : 02-317-3062</p>
+                        <p>그날 최상의 신선도를 자랑하거나 제철인 식재료를 구매하여 섹션별로 배치된 전문요리사들이 오픈된 조리공간에서 요리를 선보입니다.</p>
+                        <h3>예약 및 문의 : 02-317-3062</h3>
                         
                         <h4>이용안내</h4>
                         <ul>
@@ -191,33 +363,48 @@
                                 위치: 메인 로비 (1층)
                             </li>
                         </ul>
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th>Time</th>
-                                <th>Price</th>
-                            </tr>
-                            <tr>
-                                <td>아침 뷔페</td>
-                                <td>06:00 - 10:30</td>
-                                <td>성인 4만9천원 / 어린이 2만9400원</td>
-                            </tr>
-                            <tr>
-                                <td>점심 뷔페</td>
-                                <td>토&일 12:00 - 14:30</td>
-                                <td>성인 10만 5천원 / 어린이 6만 3천원</td>
-                            </tr>
-                            <tr>
-                                <td>저녁 뷔페</td>
-                                <td>금, 토&일 18:00 - 21:30</td>
-                                <td>성인 11만 5천원 / 어린이 6만 9천원</td>
-                            </tr>
-                            <tfoot>
-                               <tr>
-                                   <td colspan = "3">▶ 어린이 가격은 48개월부터 초등학교 6학년까지 적용 (48개월 미만은 무료)</td>
-                               </tr>
-                            </tfoot>
-                        </table>
+                        
+                        <div id="tableBox">
+                            <ul>
+                                <li></li>
+                                <li>Time</li>
+                                <li>Price</li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    아침 뷔페
+                                </li>
+                                <li>
+                                    06:00 - 10:30
+                                </li>
+                                <li>
+                                    성인 4만 9천원 / 어린이 2만9400원
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    점심 뷔페
+                                </li>
+                                <li>
+                                    토&일 12:00 - 14:30
+                                </li>
+                                <li>
+                                    성인 10만 5천원 / 어린이 6만3000원
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>저녁 뷔페</li>
+                                <li>금~일 18:00 - 21:30</li>
+                                <li>성인 11만 5천원 / 어린이 6만 9000원</li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    ▶ 어린이 가격은 48개월부터 초등학교 6학년까지 적용 (48개월 미만은 무료)
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        
                         <p>
                             카페395는 밀레니엄 힐튼 서울의 플래그십 레스토랑으로 다양한 일품요리와 뷔페요리를 동시에 제공하고 있습니다.
 
@@ -225,18 +412,31 @@
 
                             모든 음식을 고객이 보는 앞에서 직접 조리하는 방식을 취함으로 일품요리와 동일한 수준의 뷔페요리를 선보이게 됩니다.
                         </p>
-                        <p>※ 2020년 5월 1일부터 주말 뷔페 및 특정 메뉴 이용 가능합니다. 이그제큐티브 라운지 & 룸서비스 메뉴 또한 카페 395에서 이용하실 수 있습니다. 고객님들의 깊은 양해를 부탁드립니다.</p>
+                        <strong>※ 2020년 5월 1일부터 주말 뷔페 및 특정 메뉴 이용 가능합니다. 이그제큐티브 라운지 & 룸서비스 메뉴 또한 카페 395에서 이용하실 수 있습니다. 고객님들의 깊은 양해를 부탁드립니다.</strong>
+                        
                         
                     </div>
                 </section>
-        <!--        <section>
+                <section>
                     <h1>실란트로 델리</h1>
-                    <ul>
-                        <li><img src="../img/3/cilantrodeli1.jpg" alt=""></li>
-                    </ul>
+                    <div class="slideBox">
+                        <ul class = "slides">
+                            <li><img src="../img/3/cilantrodeli1.jpg" alt=""></li>
+                            <li><img src="../img/3/cilantrodeli2.jpg" alt=""></li>
+                            <li><img src="../img/3/cilantrodeli3.jpg" alt=""></li>
+                            <li><img src="../img/3/cilantrodeli4.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
                     <div class="textBox">
-                        <h3>신선하고 맛있는 케이크, 패스트리, 빵, 햄과 치즈를 즐기실 수 있으며, 다양한 메뉴를 테이크아웃 메뉴로도 선택하실 수 있습니다.</h3>
-                        <p>예약 및 문의 : 02-317-3064</p>
+                        <p>신선하고 맛있는 케이크, 패스트리, 빵, 햄과 치즈를 즐기실 수 있으며, 다양한 메뉴를 테이크아웃 메뉴로도 선택하실 수 있습니다.</p>
+                        <h3>예약 및 문의 : 02-317-3064</h3>
                         
                         <h4>이용안내</h4>
                         <ul>
@@ -251,17 +451,25 @@
                             특별한 날을 위한 스페셜 케이크가 필요하실 때는 최소 3일 전에 전화를 주시면 주문 제작해 드립니다.
                             해피 아워(Happy Hour / 20:00 - 21:00)에는 모든 빵 종류를 할인된 가격으로 판매하고 있어 이 시간대를 이용하면 더욱 저렴한 가격으로 빵을 구입할 수 있습니다. (케이크와 일부 품목은 제외, 12월 24 & 25일은 미적용)
                         </p>
-                        <p> 칠면조 구이 테이크아웃 메뉴 주문 가능</p>
+                        <strong> 칠면조 구이 테이크아웃 메뉴 주문 가능</strong>
                     </div>
-                </section>-->
-    <!--            <section>
+                </section>
+                <section>
                     <h1>일폰테</h1>
-                    <ul>
-                        <li><img src="../img/3/ilfonte1.jpg" alt=""></li>
-                    </ul>
+                    <div class="slideBox">
+                        <ul class = "slides">
+                            <li><img src="../img/3/ilfonte1.jpg" alt=""></li>
+                            <li><img src="../img/3/ilfonte2.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                        </ul>
+                    </div>
                     <div class="textBox">
-                        <h3>정통 이태리 요리를 선보이고 있는 일폰테에서는 전원풍의 편안한 분위기를 만끽하면서 이태리 각 지역의 풍미를 맛보실 수 있습니다.</h3>
-                        <p>예약 및 문의 : 02-317-3270</p>
+                        <p>정통 이태리 요리를 선보이고 있는 일폰테에서는 전원풍의 편안한 분위기를 만끽하면서 이태리 각 지역의 풍미를 맛보실 수 있습니다.</p>
+                        <h3>예약 및 문의 : 02-317-3270</h3>
                         
                         <h4>이용안내</h4>
                         <ul>
@@ -278,17 +486,35 @@
                             일폰테는 주방이 공개되어 있어 조리하는 과정을 직접 지켜 볼 수 있을 뿐만 아니라 고객이 원하는 취향의 요리를 조리장에게 직접 요청할 수도 있습니다.
                             일폰테에는 10명까지 자리할 수 있는 소규모 별실과 총 50명까지 행사를 치를 수 있는 리알토(Rialto) 별실이 별도로 마련되어 있습니다.
                         </p>
-                        <p> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</p>
+                        <strong> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</strong>
                     </div>
                 </section>
                 <section>
-                    <h1>일폰테</h1>
-                    <ul>
-                        <li><img src="../img/3/ilfonte1.jpg" alt=""></li>
-                    </ul>
+                    <h1>겐지</h1>
+                    <div class="slideBox">
+                        <ul class = "slides">
+                            <li><img src="../img/3/genji1.jpg" alt=""></li>
+                            <li><img src="../img/3/genji2.jpg" alt=""></li>
+                            <li><img src="../img/3/genji3.jpg" alt=""></li>
+                            <li><img src="../img/3/genji4.jpg" alt=""></li>
+                            <li><img src="../img/3/genji5.jpg" alt=""></li>
+                            <li><img src="../img/3/genji6.jpg" alt=""></li>
+                            <li><img src="../img/3/genji7.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
                     <div class="textBox">
-                        <h3>사계절의 변화가 오롯이 느껴지는 겐지 정원 감상과 함께 오마카세 다이닝을 즐기실 수 있습니다.</h3>
-                        <p>예약 및 문의 : 02-317-3240</p>
+                        <p>사계절의 변화가 오롯이 느껴지는 겐지 정원 감상과 함께 오마카세 다이닝을 즐기실 수 있습니다.</p>
+                        <h3>예약 및 문의 : 02-317-3240</h3>
                         
                         <h4>이용안내</h4>
                         <ul>
@@ -304,17 +530,25 @@
                             ‘겐지(源氏)’는 일본 헤이안 시대 최고의 고전소설로 꼽히는 ‘겐지모노가타리’의 주인공 ‘히카루 겐지’에서 유래되어 오늘날 ‘최고의 음식과 술 그리고 미식가’를 상징하는 단어로 자리매김되었다고 합니다.
                             겐지는 호텔업계 최초로 ‘덴푸라 오마카세 전용 카운터'와 '스시 오마카세 카운터'를 각각 운영하고 있습니다. 사계절의 변화가 오롯이 느껴지는 겐지 정원을 감상하시며 프리미엄급 오마카세 다이닝을 즐기실 수 있습니다. 또한 저녁에는 즉석에서 요리해 주는 데판야끼 메뉴도 이용 가능합니다.
                         </p>
-                        <p> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</p>
+                        <strong> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</strong>
                     </div>
                 </section>
                 <section>
                     <h1>오크룸</h1>
-                    <ul>
-                        <li><img src="../img/3/oakroom1.jpg" alt=""></li>
-                    </ul>
+                    <div class="slideBox">
+                        <ul class = "slides">
+                            <li><img src="../img/3/oakroom1.jpg" alt=""></li>
+                            <li><img src="../img/3/oakroom2.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                        </ul>
+                    </div>
                     <div class="textBox">
-                        <h3>벽난로에서 통나무 장작이 타오르는 바 오크룸에서는 라이브 음악과 함께 가벼운 스낵류와 음료를 즐기며 펍 레스토랑의 진수를 만끽 하실 수 있습니다.</h3>
-                        <p>예약 및 문의 : 02-317-3234</p>
+                        <p>벽난로에서 통나무 장작이 타오르는 바 오크룸에서는 라이브 음악과 함께 가벼운 스낵류와 음료를 즐기며 펍 레스토랑의 진수를 만끽 하실 수 있습니다.</p>
+                        <h3>예약 및 문의 : 02-317-3234</h3>
                         
                         <h4>이용안내</h4>
                         <ul>
@@ -333,17 +567,25 @@
                             위스키 마니아를 위해 매월 특선 위스키 행사를 하고 있습니다. 해당 위스키 할인 혜택과 무료 안주를 제공하고 있으며 추첨을 통하여 위스키 한 병씩을 드립니다.
 
                         </p>
-                        <p> ※ 2020년 5월 1일부터 평일 바비큐 뷔페 메뉴만 이용 가능합니다. 하단의 '지금 예약하기' 버튼을 통해 예약 시, 10% 할인이 적용됩니다.</p>
+                        <strong> ※ 2020년 5월 1일부터 평일 바비큐 뷔페 메뉴만 이용 가능합니다. 하단의 '지금 예약하기' 버튼을 통해 예약 시, 10% 할인이 적용됩니다.</strong>
                     </div>
                 </section>
                 <section>
                     <h1>타이판</h1>
-                    <ul>
-                        <li><img src="../img/3/typan1.jpg" alt=""></li>
-                    </ul>
+                    <div class="slideBox">
+                        <ul class = "slides">
+                            <li><img src="../img/3/typan1.jpg" alt=""></li>
+                            <li><img src="../img/3/typan2.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                        </ul>
+                    </div>
                     <div class="textBox">
-                        <h3>세련되고 현대적 감각이 깃든 타이판은 별실을 갖추고 있으며, 계절별 신선한 요리를 비롯해 다양한 중국요리의 즐거움을 선사합니다.</h3>
-                        <p>예약 및 문의 : 02-317-3237</p>
+                        <p>세련되고 현대적 감각이 깃든 타이판은 별실을 갖추고 있으며, 계절별 신선한 요리를 비롯해 다양한 중국요리의 즐거움을 선사합니다.</p>
+                        <h3>예약 및 문의 : 02-317-3237</h3>
                         
                         <h4>이용안내</h4>
                         <ul>
@@ -363,21 +605,29 @@
                             인테리어는 모던 차이니스 스타일로 우아한 서구식 실내장식과 단순하면서도 세련된 분위기의 소품들과 가구들로 타이판 만의 멋스러움을 한층 더해줍니다.
 
                         </p>
-                        <p> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</p>
+                        <strong> ※ 2020년 3월 18일부터 일시적으로 레스토랑 운영을 중단합니다. 고객님들의 깊은 양해를 부탁 드립니다.</strong>
                     </div>
                 </section>
                 <section>
                     <h1>시즌즈</h1>
-                    <ul>
-                        <li><img src="../img/3/seasons1.jpg" alt=""></li>
-                    </ul>
+                    <div class="slideBox">
+                        <ul class = "slides">
+                            <li><img src="../img/3/seasons1.jpg" alt=""></li>
+                            <li><img src="../img/3/seasons2.jpg" alt=""></li>
+                        </ul>
+                        
+                        <ul class="slideBtn">
+                            <li class="on"></li>
+                            <li></li>
+                        </ul>
+                    </div>
                     <div class="textBox">
-                        <h3>구어메서클, 와인&치즈 클럽, 기업행사, 가족연회, 프라이빗 파티 등을 전문으로 하는 ‘소셜 베뉴(Social Venue)’입니다.</h3>
-                        <p>예약 및 문의 : (02) 317-3200 / seoul@hilton.com</p>
+                        <p>구어메서클, 와인&치즈 클럽, 기업행사, 가족연회, 프라이빗 파티 등을 전문으로 하는 ‘소셜 베뉴(Social Venue)’입니다.</p>
+                        <h3>예약 및 문의 : (02) 317-3200 / seoul@hilton.com</h3>
                         
                         <h4>이용안내</h4>
                         
-                        <p>
+                        <p style="margin-top: 20px;">
                             고객 여러분께,
 
                             지난 30여 년간 저희 프렌치 식당 ‘시즌즈’를 이용해 주신 고객 여러분께 진심으로 감사드립니다.
@@ -389,7 +639,7 @@
                             특별한 이벤트를 위해 시즌즈 예약이 필요하시면 연회 판촉부에 문의 바랍니다.
                         </p>
                     </div>
-                </section>-->
+                </section>
             </div>
             
         </div> <!-- // container -->
