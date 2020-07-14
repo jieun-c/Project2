@@ -76,16 +76,11 @@ body::-webkit-scrollbar {
     font-size: 1.5rem;
     word-break: keep-all;
     padding: 0 20px;
-    
-    text-shadow: 2px 2px 5px black,
-        3px 3px 5px black;
 }
 .slide_item > .textBox > .go{
     margin: 40px auto 0;
     color: white;
     border: 2px solid white;
-    text-shadow: 2px 2px 5px black,
-        3px 3px 5px black;
 }
 .textBox > .go:before{
     background-color: #1e4a6e;
