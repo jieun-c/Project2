@@ -60,7 +60,7 @@ header{
 }
 .mobileMenu .gnb > li > a{
     line-height: 70px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .mobileMenu .snb{
     line-height: 30px;
@@ -137,7 +137,6 @@ header{
         line-height: 95px;
     }
     .mainMenu .gnb > li > a{
-        font-size: 1.2rem;
         color: white;
         width: 100%;
         display: block;

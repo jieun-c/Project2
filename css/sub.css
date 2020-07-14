@@ -63,6 +63,9 @@
     padding: 0px 5px;
     font-size: 0.7rem;
 }
+.subTop_title ul li:hover a{
+    color: #9dcef7;
+}
 
 .subTop_title ul li:nth-child(2) a:before,
 .subTop_title ul li:nth-child(3) a:before,
@@ -114,7 +117,7 @@ input:focus{
         font-size: 1.1rem;
     }
     .subTop_title ul li a{
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
 
@@ -130,7 +133,7 @@ input:focus{
         font-size: 1.1rem;
     }
     .subTop_title ul li a{
-        font-size: 0.9rem;
+        font-size: 1.05rem;
     }
 
 }
