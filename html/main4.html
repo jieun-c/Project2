@@ -1,21 +1,13 @@
 <script>
-    var title_bnf = $("#bnfhead h1");
     var item_bnf = $("#bnflist > li");
-    
-    title_bnf.hide();
-    
     
     $(window).scroll(function(){
         var main = $("#main4").offset().top;
         var w = $(window).scrollTop();
-        var del = 1000;
-
+        
         if(main <= w * 1.3){
-            title_bnf.slideDown(1000);
             spin();
             
-        }else{
-            title_bnf.hide();
         }
     });
     

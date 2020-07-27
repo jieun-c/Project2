@@ -10,36 +10,6 @@ body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
 }
 
-/*.go{
-    display: block;
-    width: 200px;
-    text-align: center;
-    color: #261308;
-    border: 2px solid #261308;
-}
-.go:before{
-    content:'';
-    display: block;
-    width: 0;
-    height: 100%;
-    transition: 0.5s;
-    background-color: #261308;
-    
-    position: absolute;
-    top:0;
-    z-index: -1;
-    
-}
-.go:hover:before{
-    width: 100%;
-}
-.go:hover{
-    border: 2px solid #261308;
-    color: white;
-    
-}*/
-
-
 /* Main1 */
 .slides{
     position: relative;
@@ -53,13 +23,17 @@ body::-webkit-scrollbar {
     
     position: absolute;
     top:0; left:100%;
+}
+.slideIMG{
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
 }
-.slide1{background-image: url("../img/1/slide1.jpg"); background-position: 45% 50%;}
-.slide2{background-image: url("../img/1/slide2.jpg");}
-.slide3{background-image: url("../img/1/slide3.jpg"); background-position: 70% 50%;}
-.slide4{background-image: url("../img/1/slide4.jpg"); background-position: 50% 50%;}
+.slide1 .slideIMG{background-image: url("../img/1/slide1.jpg"); background-position: 45% 50%;}
+.slide2 .slideIMG{background-image: url("../img/1/slide2.jpg"); }
+.slide3 .slideIMG{background-image: url("../img/1/slide3.jpg"); background-position: 70% 50%; }
+.slide4 .slideIMG{background-image: url("../img/1/slide4.jpg"); background-position: 50% 50%; }
 
 
 .slide_item > .textBox{
@@ -70,12 +44,13 @@ body::-webkit-scrollbar {
     opacity: 0;
 }
 
-.black h1{
+.slide_item > .textBox > h1{
     color: white;
     text-align: center;
     font-size: 1.5rem;
     word-break: keep-all;
     padding: 0 20px;
+    font-weight: lighter;
 }
 .slide_item > .textBox > .go{
     margin: 40px auto 0;
@@ -134,14 +109,17 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 0; left: 50%;
     transform: translateX(-50%);
+    transition: 1s;
     width: 100%;
     text-align: center;
     margin-top: 5vh;
+    z-index: 100;
 }
 #acmhead img{ /*밀튼*/
     vertical-align: middle;
     width: 25px;
     margin-right: 5px;
+    margin-bottom: 20px;
 }
 #acmhead h1{
     display: inline-block;
@@ -192,9 +170,10 @@ body::-webkit-scrollbar {
     padding: 1vh 0;
     box-sizing: border-box;
     color: #261308;
+    transition: 0.2s;
     cursor: pointer;
 }
-#acmBtn li.on{
+#acmBtn li.on, #acmBtn li:hover{
     background-color: #261308;
     color: white;
 }
@@ -219,7 +198,7 @@ body::-webkit-scrollbar {
 #prmhead img{ /*밀튼2*/
     width: 50px;
     position: absolute;
-    top: -25px; right: 75px;
+    top: -25px; left: 65%;
 }
 
 .swiper-container {
@@ -332,11 +311,14 @@ body::-webkit-scrollbar {
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {  
-    .black h1{
+    .slide_item > .textBox > h1{
         font-size: 1.8rem;
     }
     #acmhead h1, #prmhead h1, #bnfhead h1{
         font-size: 2.3rem;
+    }
+    #prmhead img{ /*밀튼2*/
+        left: 58%;
     }
     #bnflist img{
         width: 40px;
@@ -355,7 +337,7 @@ body::-webkit-scrollbar {
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-    .black h1{
+    .slide_item > .textBox > h1{
         font-size: 2rem;
     }
     #acmhead h1, #prmhead h1, #bnfhead h1{
@@ -405,7 +387,7 @@ body::-webkit-scrollbar {
     .slide_item{
         background-attachment: fixed;
     }
-    .black h1{
+    .slide_item > .textBox > h1{
         font-size: 2.5rem;
     }
     
@@ -509,8 +491,14 @@ body::-webkit-scrollbar {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-    .black h1{
-        font-size: 3rem;
+    .slideIMG{
+        background-size: 100% 100%;
+    }
+    .slide_item > .textBox > h1{
+        font-size: 2.5rem;
+    }
+    #acmhead{
+        top: 14%;
     }
     #acmBtn{
         position: absolute;
