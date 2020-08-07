@@ -41,6 +41,9 @@
             font-size: 20px;
             font-family: 'YetHangㅇul';
         }
+        #tdCalendarYM{
+            text-align: center;
+        }
         
         #pcImg{
             display: none;
@@ -91,7 +94,7 @@
         }
     </style>
     
-    <script type="text/javascript">
+    <script>
             var today = new Date();
             var date = new Date();
             function prevCalendar(){
@@ -182,25 +185,25 @@
                     <table id="calendar"> <!--align="center"-->
                         <tr>
                             <td colspan="2"><label onclick="prevCalendar()">&lt;</label></td>
-                            <td align="center" id="tdCalendarYM" colspan="3" style="font-size: 18px; font-weight: bold;">yyyy년 mm월</td>
+                            <td id="tdCalendarYM" colspan="3" style="font-size: 18px; font-weight: bold;">yyyy년 mm월</td>
                             <td colspan="2"><label onclick="nextCalendar()">&gt;</label></td>
                         </tr>
                         <tr>
-                            <td align="center" style="color:#f03a40; font-weight: bold;">일</td>
-                            <td align="center" style="font-weight: bold">월</td>
-                            <td align="center" style="font-weight: bold">화</td>
-                            <td align="center" style="font-weight: bold">수</td>
-                            <td align="center" style="font-weight: bold">목</td>
-                            <td align="center" style="font-weight: bold">금</td>
-                            <td align="center" style="color:#0084ff; font-weight: bold;">토</td>
+                            <td style="color:#f03a40; font-weight: bold;">일</td>
+                            <td style="font-weight: bold">월</td>
+                            <td style="font-weight: bold">화</td>
+                            <td style="font-weight: bold">수</td>
+                            <td style="font-weight: bold">목</td>
+                            <td style="font-weight: bold">금</td>
+                            <td style="color:#0084ff; font-weight: bold;">토</td>
                         </tr> 
                     </table>
-                    <script language="javascript" type="text/javascript">
+                    <script>
                         buildCalendar();
                     </script>
                 </div>
                 <div class="rv">
-                    <form action="">
+                    <form>
                         <ul>
                             <li>
                                 <label for="checkIn">CHECK-IN</label>
@@ -212,7 +215,7 @@
                             </li>
                             <li>
                                 <label>객실</label>
-                                <select name="" id="">
+                                <select>
                                     <option value="">Deluxe</option>
                                     <option value="">DeluxeMountain</option>
                                     <option value="">Executive</option>
